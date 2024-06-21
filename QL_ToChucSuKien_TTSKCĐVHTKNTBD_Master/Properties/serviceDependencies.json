@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:QL_ToChucSuKien_TTSKCĐVHTKNTBD_MasterContextConnection"
+    },
+    "mssql2": {
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:QL_ToChucSuKien_TTSKCĐVHTKNTBD_MasterConnection"
+    }
+  }
+}

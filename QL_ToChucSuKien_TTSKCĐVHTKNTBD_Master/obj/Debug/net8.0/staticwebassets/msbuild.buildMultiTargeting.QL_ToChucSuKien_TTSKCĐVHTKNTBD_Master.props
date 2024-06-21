@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.props" />
+</Project>

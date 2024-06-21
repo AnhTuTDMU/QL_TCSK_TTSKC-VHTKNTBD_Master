@@ -1,0 +1,109 @@
+﻿<main class="main">
+    <section id="hero" class="hero section">
+
+        <!-- Sự kiện 1 -->
+        <div class="event" data-aos="fade-in">
+            <img src="~/uploads/hero-bg.jpg" alt="">
+            <div class="container d-flex flex-column align-items-center text-center mt-auto">
+                <h2 data-aos="fade-up" data-aos-delay="100">Triển lãm<br><span>Công nghệ</span> Technology</h2>
+                <h4 data-aos="fade-up" data-aos-delay="100"><span>Thời gian: </span>20-30 Tháng 6</h4>
+                <p data-aos="fade-up" data-aos-delay="200">Địa điểm: Trung tâm sáng kiến cộng đồng và hỗ trợ khởi nghiệp Bình Dương</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.youtube.com/watch?v=OHVHhSvDXo8" class="glightbox play-btn"></a>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400" style="margin: 20px">
+                    <a href="#" class="btn-success" style="padding: 10px; border-radius: 10px;">Đăng ký tham gia</a>
+                </div>
+            </div>
+            <div class="about-info mt-auto position-relative">
+                <div class="container position-relative" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Nội dung</h2>
+                            <p>
+                                Kính chào quý vị,
+                                Chúng tôi rất hân hạnh được giới thiệu đến quý vị một bước đột phá trong lĩnh vực công nghệ: [Tên Công Nghệ]. Đây là một giải pháp tiên tiến, mang tính cách mạng, được thiết kế để cải thiện hiệu suất, tiết kiệm thời gian và tối ưu hóa chi phí cho doanh nghiệp của bạn
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Địa điểm</h3>
+                            <p>Trung tâm sáng kiến cộng đồng và hỗ trợ khởi nghiệp Bình Dương</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Ngày diễn ra</h3>
+                            <p>Thứ 4 đến Thứ 4<br>20/06-27/06</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sự kiện 2 -->
+        <div class="event" data-aos="fade-in">
+            <img src="~/uploads/trienlamcongnghe.jpg" alt="">
+            <div class="container d-flex flex-column align-items-center text-center mt-auto">
+                <h2 data-aos="fade-up" data-aos-delay="100">Triển lãm<br><span>Âm nhạc</span> Music</h2>
+                <h4 data-aos="fade-up" data-aos-delay="100"><span>Thời gian: </span>10-15 Tháng 7</h4>
+                <p data-aos="fade-up" data-aos-delay="200">Địa điểm: Trung tâm sáng kiến cộng đồng và hỗ trợ khởi nghiệp Bình Dương</p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <a href="https://www.youtube.com/watch?v=FqypjXNqZJM" class="glightbox play-btn"></a>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400" style="margin: 20px">
+                    <a href="#" class="btn-success" style="padding: 10px; border-radius: 10px;">Đăng ký tham gia</a>
+                </div>
+            </div>
+            <div class="about-info mt-auto position-relative">
+                <div class="container position-relative" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Nội dung</h2>
+                            <p>
+                                Kính chào quý vị,
+                                Chúng tôi rất hân hạnh được giới thiệu đến quý vị một sự kiện âm nhạc tuyệt vời. Đây là cơ hội để bạn thưởng thức những giai điệu đẹp và cảm nhận sự hòa quyện của âm nhạc.
+                            </p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Địa điểm</h3>
+                            <p>Trung tâm sáng kiến cộng đồng và hỗ trợ khởi nghiệp Bình Dương</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <h3>Ngày diễn ra</h3>
+                            <p>Thứ 2 đến Thứ 6<br>10/07-15/07</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+
+<script>
+    // Chuyển sự kiện
+    // Chờ cho tài liệu HTML được tải hoàn thành trước khi thực hiện các thao tác
+    document.addEventListener('DOMContentLoaded', function () {
+        // Biến lưu trữ chỉ số sự kiện hiện tại
+        let currentEventIndex = 0;
+
+        // Lấy tất cả các phần tử sự kiện
+        const events = document.querySelectorAll('.event');
+        const totalEvents = events.length;
+
+        // Hàm hiển thị sự kiện tại chỉ số index
+        function showEvent(index) {
+            // Ẩn tất cả các sự kiện
+            events.forEach(event => event.style.display = 'none');
+            // Hiển thị sự kiện tại index cho trước
+            events[index].style.display = 'block';
+        }
+
+        // Hiển thị sự kiện đầu tiên khi tài liệu được tải
+        showEvent(currentEventIndex);
+
+        // Chuyển đổi tự động sang sự kiện tiếp theo sau mỗi 10 giây
+        setInterval(nextEvent, 10000);
+    });
+</script>
+
+<script src="./js/index.js"></script>

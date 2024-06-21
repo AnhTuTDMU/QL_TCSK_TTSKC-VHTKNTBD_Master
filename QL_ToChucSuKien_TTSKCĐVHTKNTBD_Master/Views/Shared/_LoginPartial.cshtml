@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Http
+
+@{
+    var username = Context.Session.GetString("Username");
+}
+
+<ul class="navmenu">
+    @if (!string.IsNullOrEmpty(username))
+    {
+        <li class="nav-item">
+            <a id="manage" class="nav-link text-dark">Xin chào @username!</a>
+        </li>
+        <li>
+            <form id="logoutForm" class="form-inline" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">
+                <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-controller="Account" asp-action="Login">
+                <i style="font-size: 25px" class="bi bi-person"></i>
+            </a>
+        </li>
+    }
+</ul>
