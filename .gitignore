@@ -1,0 +1,7 @@
+.vs/QL_ToChucSuKien_TTSKCÄVHTKNTBD_Master/FileContentIndex/*.vsidx
+
+# Bỏ qua tất cả các tệp .log
+*.log
+
+# Bỏ qua thư mục tạm thời của Visual Studio
+.vs/
