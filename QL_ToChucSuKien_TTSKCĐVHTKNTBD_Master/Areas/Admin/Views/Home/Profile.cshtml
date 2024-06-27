@@ -1,0 +1,156 @@
+﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.ViewModels.UserProfileViewModel
+@{
+    Layout = "~/Areas/Admin/Shared/_NavAdmin.cshtml";
+}
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <h1 class="h3 mb-4 text-gray-800">Trang cá nhân</h1>
+    <div class="row">
+        <div class="col d-flex justify-content-end p-2">
+            <a type="button" class="btn btn-success" data-toggle="modal" data-target=".modalProfile">
+                <i class="fas fa-edit" style="font-size: 12px;"></i>
+                Sửa thông tin
+            </a>
+            <div style="padding: 20px" class="modal fade modalProfile" tabindex="-1" role="dialog" aria-labelledby="modalProfileLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="modalProfileLabel">Sửa thông tin người dùng</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <form id="updateProfileForm" asp-action="UpdateProfile" method="post" enctype="multipart/form-data">
+                                <input type="hidden" asp-for="UserId" value="@Model.UserId" />
+
+                                <div class="form-group">
+                                    <label for="UserName">User Name</label>
+                                    <input asp-for="UserName" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="UserEmail">Email</label>
+                                    <input asp-for="UserEmail" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="Address">Address</label>
+                                    <input asp-for="Address" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="PhoneNumber">Phone Number</label>
+                                    <input asp-for="PhoneNumber" class="form-control" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="FLFrontImage">Profile Picture</label>
+                                    <input asp-for="FrontImg" class="form-control-file" accept="image/*" id="FLFrontImage" onchange="previewImage(this);" />
+                                    <img id="imagePreview" src="~/uploads/@Model.ProfilePicture" alt="Profile Picture" width="150" height="150" />
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mt-2">Update Profile</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card mb-4">
+            <div class="card-body text-center">
+                <div class="form-group">
+                    <img id="imagePreview" src="~/uploads/@Model.ProfilePicture" alt="Avatar" width="150" height="150" style="border: 1px; margin: 10px;" />
+                </div>
+                <h5 class="my-3">@Model.UserName</h5>
+                <p class="text-muted mb-1">Quản lý</p>
+            </div>
+        </div>
+        <div class="card mb-4 mb-lg-0">
+            <div class="card-body p-0">
+                <ul class="list-group list-group-flush rounded-3">
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <i class="fab fa-github fa-lg text-body"></i>
+                        <a href="https://github.com/AnhTuTDMU" class="mb-0">https://github.com/AnhTuTDMU</a>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
+                        <a href="https://www.instagram.com/atus083" class="mb-0"> https://www.instagram.com/atus083 </p>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center p-3">
+                        <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
+                        <a href="https://www.facebook.com/AnhTu0803" class="mb-0"> https://www.facebook.com/AnhTu0803</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Tên người dùng</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.UserName</p>
+
+                    </div>
+
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Email</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.UserEmail</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Số điện thoại</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.PhoneNumber</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Địa chỉ</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.Address</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script>
+        function previewImage(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                document.getElementById('imagePreview').setAttribute('src', e.target.result);
+                document.getElementById('imagePreview').style.display = 'block';
+            };
+
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+}

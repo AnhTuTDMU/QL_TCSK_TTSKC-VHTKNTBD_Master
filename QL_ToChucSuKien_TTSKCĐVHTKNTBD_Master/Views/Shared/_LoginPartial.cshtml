@@ -3,17 +3,19 @@
 @{
     var username = Context.Session.GetString("Username");
 }
-
 <ul class="navmenu">
     @if (!string.IsNullOrEmpty(username))
     {
-        <li class="nav-item">
-            <a id="manage" class="nav-link text-dark">Xin chào @username!</a>
-        </li>
-        <li>
-            <form id="logoutForm" class="form-inline" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">
-                <button id="logout" type="submit" class="nav-link btn btn-link text-dark border-0">Logout</button>
-            </form>
+        <li class="dropdown">
+            <a href="#" class="nav-link text-dark"><span>Xin chào @username</span>  <i style="font-size: 25px" class="bi bi-person"></i></a>
+            <ul>
+                <li><a href="@Url.Action("Index", "Home", new { area = "Admin" })">Trang quản lý</a></li>
+                <li>
+                    <form id="logoutForm" class="form-inline" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home")">
+                        <button id="logout" type="submit" class="logout-button border-0">Đăng xuất</button>
+                    </form>
+                </li>
+            </ul>
         </li>
     }
     else
@@ -25,3 +27,21 @@
         </li>
     }
 </ul>
+
+<style>
+    .navmenu .dropdown .logout-button {
+        width: 100%;
+        display: flex;
+        padding: 10px 20px;
+        font-size: 15px;
+        text-transform: none;
+        color: #212529;
+        background-color: #ffffff;
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+    }
+
+        .navmenu .dropdown .logout-button:hover {
+            color: #f82249;
+        }
+</style>

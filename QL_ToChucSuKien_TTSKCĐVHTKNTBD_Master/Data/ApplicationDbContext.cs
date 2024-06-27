@@ -8,8 +8,10 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
            : base(options)
         {
-
         }
+
         public DbSet<UsersModel> Users { get; set; }
+        public DbSet<EventsModel> Events { get; set; }
+      
     }
 }

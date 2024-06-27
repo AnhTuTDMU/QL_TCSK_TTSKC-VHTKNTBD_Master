@@ -259,3 +259,4 @@ C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKie
 C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\obj\Debug\net8.0\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.pdb
 C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\obj\Debug\net8.0\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.genruntimeconfig.cache
 C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\obj\Debug\net8.0\ref\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\obj\Debug\net8.0\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.sourcelink.json

@@ -1,3 +1,304 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.ViewModels.EventsViewModel;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<main class="main">
+    @if(Model.RunningEvents.Any())
+    {
+        <section id="hero" class="hero section">
+            @foreach (var item in Model.RunningEvents)
+            {
+                <div class="event" data-aos="fade-in">
+                    <img src="~/uploads/@item.ImgUrl" alt="">
+                    <div class="container d-flex flex-column align-items-center text-center mt-auto">
+                        <h2 data-aos="fade-up" data-aos-delay="100">@item.EventName</h2>
+                        <h4 data-aos="fade-up" data-aos-delay="100"><span>Thời gian: </span>@item.EventStartDate.ToString("dd/MM/yyyy") - @item.EventEndDate.ToString("dd/MM/yyyy")</h4>
+                        <p data-aos="fade-up" data-aos-delay="200">Địa điểm: @item.EventLocation</p>
+                        <div data-aos="fade-up" data-aos-delay="300">
+                            <a href="https://www.youtube.com/watch?v=OHVHhSvDXo8" class="glightbox play-btn"></a>
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="400" style="margin: 20px">
+                            <a href="#" class="btn-success" style="padding: 10px; border-radius: 10px;">Đăng ký tham gia</a>
+                        </div>
+                    </div>
+                    <div class="about-info mt-auto position-relative">
+                        <div class="container position-relative" data-aos="fade-up">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <h2>Nội dung</h2>
+                                    <p>@item.EventDescription</p>
+                                </div>
+                                <div class="col-lg-3">
+                                    <h3>Địa điểm</h3>
+                                    <p>@item.EventLocation</p>
+                                </div>
+                                <div class="col-lg-3">
+                                    <h3>Ngày diễn ra</h3>
+                                    <p>Thứ @item.EventStartDate.DayOfWeek đến Thứ @item.EventEndDate.DayOfWeek<br>@item.EventStartDate.ToString("dd/MM") - @item.EventEndDate.ToString("dd/MM")</p>
+                                    <p>Thời gian từ @item.EventStartDate.ToString("HH:mm") - @item.EventEndDate.ToString("HH:mm")</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    }
+    else
+    {
+         <div class="event" data-aos="fade-in">
+            <img src="https://littleetoile.vn/wp-content/themes/lewis/assets/images/nodatafound.png" alt="">
+        </div>
+    }
+
+</main>
+<div class="container">
+    <div class="row p-3">
+        <div class="d-flex justify-content-between p-3">
+            <h4 class="font-weight-bold" style="font-weight: 700">
+                <i class="bi bi-play-circle-fill text-success"></i> Sự kiện đang diễn ra 
+            </h4>
+            <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
+        </div>
+      
+        <div class="card-group">
+            @foreach (var item in Model.RunningEvents)
+            {
+                <div class="card m-1">
+                    <img class="card-img-top" src="~/uploads/@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">@item.EventName</h5>
+                        <p class="card-text">@item.EventDescription</p>
+                        <div class="mt-auto">
+                            <p class="card-text m-0"><small class="text-muted">Sự kiện sẽ kết thúc vào lúc: @item.EventEndDate.ToString("HH:mm")</small></p>
+                            <p class="card-text"><small class="text-muted">Ngày: @item.EventEndDate.ToString("dd/MM/yyyy")</small></p>
+                            <a href="#" class="btn btn-primary mt-auto btnOpenRegisterModal" data-event-id="@item.EventID">Đăng ký tham gia</a>
+                            <a href="@Url.Action("Detail", "Events", new { eventId = item.EventID })" class="btn btn-outline-dark mt-auto">Xem chi tiết</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <div class="row mt-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination d-flex justify-content-center">
+                @if (Model.RunningEvents.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.RunningEvents.PageIndex - 1)">Quay lại</a>
+                    </li>
+                }
+                @for (int i = 1; i <= Model.RunningEvents.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.RunningEvents.PageIndex ? "active" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                    </li>
+                }
+                @if (Model.RunningEvents.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.RunningEvents.PageIndex + 1)">Tiếp tục</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+
+    <div class="row p-3">
+        <div class="d-flex justify-content-between p-3">
+            <h4 class="font-weight-bold" style="font-weight: 700">
+                <i class="bi bi-clock-fill text-warning"> </i>Sự kiện sắp diễn ra
+            </h4>
+            <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
+        </div>
+
+        @if (Model.UpcomingEvents.Any())
+        {
+            <div class="card-group">
+                @foreach (var item in Model.UpcomingEvents)
+                {
+                    <div class="card m-1">
+                        <img class="card-img-top" src="~/uploads/@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@item.EventName</h5>
+                            <p class="card-text">@item.EventDescription</p>
+                            <div class="mt-auto">
+                                <p class="card-text m-0"><small class="text-muted">Sự kiện sẽ bắt đầu vào lúc: @item.EventStartDate.ToString("HH:mm")</small></p>
+                                <p class="card-text"><small class="text-muted">Ngày: @item.EventStartDate.ToString("dd/MM/yyyy")</small></p>
+                                <a href="#" class="btn btn-primary mt-auto">Đăng ký tham gia</a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-text"><i class="bi bi-info-circle"></i> Hiện không có sự kiện nào sắp diễn ra.</h6>
+                </div>
+            </div>
+        }
+    </div>
+
+    <div class="row mt-4">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination d-flex justify-content-center">
+                @if (Model.UpcomingEvents.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.UpcomingEvents.PageIndex - 1)">Quay lại</a>
+                    </li>
+                }
+                @for (int i = 1; i <= Model.UpcomingEvents.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.UpcomingEvents.PageIndex ? "active" : "")">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
+                    </li>
+                }
+                @if (Model.UpcomingEvents.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.UpcomingEvents.PageIndex + 1)">Tiếp tục</a>
+                    </li>
+                }
+            </ul>
+        </nav>
+    </div>
+    <div class="row p-3">
+        <div class="d-flex justify-content-between p-3">
+            <h4 class="font-weight-bold" style="font-weight: 700">
+                <i class="bi bi-check-circle-fill text-success"></i> Sự kiện đã kết thúc
+            </h4>
+
+            <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
+        </div>
+
+        @if(Model.EndedEvents.Any())
+        {
+            <div class="card-group">
+                @foreach (var item in Model.EndedEvents)
+                {
+                    <div class="card m-1">
+                        <img class="card-img-top" src="~/uploads/@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">@item.EventName</h5>
+                            <p class="card-text">@item.EventDescription</p>
+                            <div class="mt-auto">
+                                <p class="card-text m-0"><small class="text-muted">Sự kiện đã kết thúc vào lúc: @item.EventEndDate.ToString("HH:mm")</small></p>
+                                <p class="card-text"><small class="text-muted">Ngày: @item.EventEndDate.ToString("dd/MM/yyyy")</small></p>
+                                <a href="#" class="btn btn-primary mt-auto">Xem lại</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-text"><i class="bi bi-info-circle"></i> Hiện không có sự kiện nào diễn ra.</h6>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="RegisterEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createEventModalLabel">Đăng ký tham gia sự kiện</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="RegisterEventModalContent"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            $('.btnOpenRegisterModal').click(function () {
+                var eventId = $(this).data('event-id');
+                $.ajax({
+                    url: '@Url.Action("Register", "Events")',
+                    type: 'GET',
+                    data: { eventId: eventId },
+                    success: function (response) {
+                        $('#RegisterEventModalContent').html(response);
+                        $('#RegisterEventModal').modal('show');
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi tải form đăng ký sự kiện.');
+                    }
+                });
+            });
+
+            // Xử lý khi form được submit (ví dụ: sự kiện click nút Đăng ký)
+            $('#RegisterEventModal').on('submit', 'form', function (e) {
+                e.preventDefault(); // Ngăn chặn hành động mặc định của form
+
+                var formData = $(this).serialize(); // Lấy dữ liệu từ form
+
+                $.ajax({
+                    url: '@Url.Action("Register", "Events")',
+                    type: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            // Xử lý khi đăng ký thành công, ví dụ như hiển thị thông báo
+                            alert('Đăng ký thành công!');
+                            $('#RegisterEventModal').modal('hide'); // Đóng modal sau khi đăng ký thành công
+                        } else {
+                            // Xử lý khi đăng ký không thành công, hiển thị lỗi nếu có
+                            alert('Đăng ký không thành công. Vui lòng kiểm tra lại thông tin.');
+                        }
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi đăng ký sự kiện.');
+                    }
+                });
+            });
+        });
+
+
+
+    // xử lý chuyển ảnh
+    document.addEventListener('DOMContentLoaded', function () {
+        let currentEventIndex = 0;
+        const events = document.querySelectorAll('.event');
+        const totalEvents = events.length;
+
+        function showEvent(index) {
+            events.forEach(event => event.style.display = 'none');
+            events[index].style.display = 'block';
+        }
+
+        function nextEvent() {
+            currentEventIndex = (currentEventIndex + 1) % totalEvents;
+            showEvent(currentEventIndex);
+        }
+
+        showEvent(currentEventIndex);
+        setInterval(nextEvent, 10000);
+    });
+</script>
+}
+
+<script src="./js/index.js"></script>

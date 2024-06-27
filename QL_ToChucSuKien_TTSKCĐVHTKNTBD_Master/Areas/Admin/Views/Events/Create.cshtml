@@ -1,0 +1,76 @@
+﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventsModel
+
+@{
+    ViewData["Title"] = "Tạo mới sự kiện";
+    Layout = null;
+}
+
+<h2 class="mb-4">Tạo mới sự kiện</h2>
+
+<div class="modal-body">
+    <form id="createEventForm" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label asp-for="EventName"></label>
+            <input asp-for="EventName" class="form-control" />
+            <span asp-validation-for="EventName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="EventDescription"></label>
+            <textarea asp-for="EventDescription" class="form-control"></textarea>
+            <span asp-validation-for="EventDescription" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="FrontImg"></label>
+            <input asp-for="FrontImg" class="form-control-file" accept="image/*" id="FLFrontImage"
+                   onchange="previewImage(this);">
+            <img id="imagePreview" src="" alt="Image" width="150" height="150" style="border: 1px solid #ccc; margin-top: 10px; display: none;" />
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="EventStartDate"></label>
+                    <input asp-for="EventStartDate" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="EventStartDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EventEndDate"></label>
+                    <input asp-for="EventEndDate" class="form-control" type="datetime-local" />
+                    <span asp-validation-for="EventEndDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group" id="LocationGroup">
+                    <label asp-for="EventLocation"></label>
+                    <select asp-for="EventLocation" class="form-control" asp-items="@ViewBag.EventLocations">
+                        <option value="">Chọn địa điểm</option>
+                    </select>
+                    <span asp-validation-for="EventLocation" class="text-danger"></span>
+                </div>
+                <div class="form-group" id="newLocationGroup" style="display: none;">
+                    <label>Nhập mới địa điểm:</label>
+                    <input type="text" id="newLocation" name="NewLocation" class="form-control" />
+                    <span asp-validation-for="EventLocation" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EventStatus"></label>
+                    <select asp-for="EventStatus" class="form-control" asp-items="@ViewBag.SelectStatus">
+                        <option value="">-- Chọn trạng thái --</option>
+                    </select>
+                    <span asp-validation-for="EventStatus" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group mt-4 text-right">
+            <button type="button" id="btnCreateEvent" class="btn btn-primary">Lưu</button>
+            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Đóng</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+   
+}

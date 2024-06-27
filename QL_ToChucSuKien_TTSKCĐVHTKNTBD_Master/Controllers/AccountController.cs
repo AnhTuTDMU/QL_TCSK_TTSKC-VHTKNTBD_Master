@@ -8,13 +8,13 @@ using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.ViewModels;
 using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models;
 using System.Security.Cryptography;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+using Microsoft.AspNetCore.Hosting;
 
 namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
 {
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public AccountController(ApplicationDbContext context)
         {
             _context = context;
@@ -72,6 +72,8 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
                     };
                     // Lưu tên người dùng vào Session
                     HttpContext.Session.SetString("Username", user.UserName);
+                    HttpContext.Session.SetInt32("UserId", user.UserId);
+
                     var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                     var authProperties = new AuthenticationProperties
                     {
@@ -105,6 +107,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet]
         private string HashPassword(string password)
         {
             using (var sha256 = SHA256.Create())
@@ -120,6 +123,6 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
             var hashedPassword = HashPassword(password);
             return hashedPassword == hash;
         }
-      
+       
     }
 }
