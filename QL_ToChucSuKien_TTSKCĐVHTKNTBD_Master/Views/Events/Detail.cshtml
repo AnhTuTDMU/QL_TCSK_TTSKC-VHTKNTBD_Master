@@ -5,14 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="container" style="width: 100%;height: 100%;margin-top: 100px;">
+<div class="container">
     <div class="row">
         <div class="col-md-6">
-            <img src="~/uploads/@Model.ImgUrl" width="100%" height="100%" />
+            <img src="@Model.ImgUrl" width="100%" height="100%" />
+
         </div>
         <div class="col-md-6">
-            <h2>@Model.EventName</h2>
-            <p>@Model.EventDescription</p>
+              <div>
+                <span>Tên sự kiện</span
+                <h2>@Model.EventName</h2>
+              </div>
+             <div>
+                <span>Địa điểm diễn ra tại</span>
+                <h2> @Model.EventLocation</h2>
+                <p>Số lượng đăng ký: @Model.NumberRegistrations</p>
+             </div>
+             <div>
+                 <p>Mô tả sự kiện: @Model.EventDescription</p> 
+             </div
         </div>
     </div>
   

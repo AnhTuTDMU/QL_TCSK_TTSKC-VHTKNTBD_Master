@@ -25,6 +25,23 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
         {
             return View(await _context.Events.ToListAsync());
         }
+        public IActionResult Details(int eventId)
+        {
+            // Truy vấn để lấy thông tin EventRegistration với Event và Customer tương ứng
+            var registrationDetails =  _context.EventRegistrations
+                .Include(er => er.Event)
+                .Include(er => er.Customers)
+                .FirstOrDefaultAsync(er => er.EventId == eventId);
+
+
+            if (registrationDetails == null)
+            {
+                return NotFound(); // Nếu không tìm thấy, trả về 404 Not Found
+            }
+
+            // Trả về view hoặc partial view chứa thông tin chi tiết
+            return View(registrationDetails); // Chuyển hướng đến view chi tiết sự kiện đăng ký
+        }
 
         // GET: Admin/Events/Create
         public IActionResult Create()
@@ -42,12 +59,14 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             {
                 try
                 {
-                    // Xử lý lưu file ảnh và lấy tên file duy nhất
-                    string uniqueFileName = UploadFile(model);
-                    model.ImgUrl = uniqueFileName;
+                    if (model.FrontImg != null)
+                    {
+                        string filePath = SaveFile(model.FrontImg);
+                        model.ImgUrl = filePath;
+                    }
                     _context.Add(model);
                     await _context.SaveChangesAsync();
-                    // Trả về thông báo thành công và ID của sự kiện
+
                     return Json(new { success = true, eventId = model.EventID, message = "Sự kiện đã được tạo thành công." });
                 }
                 catch (Exception ex)
@@ -59,6 +78,19 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
 
             return Json(new { errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
+
+        private string SaveFile(IFormFile file)
+        {
+            string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
+            string uniqueFileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                file.CopyTo(fileStream);
+            }
+            return "/uploads/" + uniqueFileName;
+        }
+
 
         // GET: Admin/Events/Edit/{id}
         public async Task<IActionResult> Edit(int? id)
@@ -93,21 +125,51 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             {
                 try
                 {
-                    string uniqueFileName = UploadFile(model);
-                    model.ImgUrl = uniqueFileName;
+                    if (model.FrontImg != null)
+                    {
+                        if (!string.IsNullOrEmpty(model.ImgUrl))
+                        {
+                            DeleteFile(model.ImgUrl);
+                        }
+                        // Lưu hình ảnh mới
+                        string filePath = SaveFile(model.FrontImg);
+                        model.ImgUrl = filePath;
+                    }
+
                     _context.Update(model);
                     await _context.SaveChangesAsync();
-                    return Json(new { success = true, message = "Sự kiện đã được cập nhật thành công." });
+                    return Json(new { success = true, eventId = model.EventID, message = "Sự kiện đã được cập nhật thành công." });
                 }
-                catch (Exception ex)
+                catch (DbUpdateConcurrencyException)
                 {
-                    ModelState.AddModelError("", $"Đã xảy ra lỗi: {ex.Message}");
-                    return Json(new { errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
+                    if (!EventModelExists(model.EventID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
             }
 
             return Json(new { errors = ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage) });
         }
+
+        private bool EventModelExists(int id)
+        {
+            return _context.Events.Any(e => e.EventID == id);
+        }
+
+        private void DeleteFile(string filePath)
+        {
+            string fullPath = Path.Combine(_webHostEnvironment.WebRootPath, filePath.TrimStart('/'));
+            if (System.IO.File.Exists(fullPath))
+            {
+                System.IO.File.Delete(fullPath);
+            }
+        }
+
         // POST: Admin/Events/Delete/{id}
         [HttpPost]
         public async Task<IActionResult> Delete(int id)
@@ -133,38 +195,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
         {
             return _context.Events.Any(e => e.EventID == id);
         }
-        [HttpPost]
-        public async Task<IActionResult> UpdateStatus(int id, string status)
-        {
-            var eventToUpdate = await _context.Events.FindAsync(id);
-            if (eventToUpdate == null)
-            {
-                return NotFound();
-            }
-
-            eventToUpdate.EventStatus = status;
-            _context.Update(eventToUpdate);
-            await _context.SaveChangesAsync();
-
-            return Json(new { success = true, message = "Trạng thái sự kiện đã được cập nhật." });
-        }
-        
-
-        private string UploadFile(EventsModel events)
-        {
-            string uniqueFileName = "";
-            if (events.FrontImg != null)
-            {
-                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads");
-                uniqueFileName = Guid.NewGuid().ToString() + "_" + events.FrontImg.FileName;
-                string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using(var fileStream = new FileStream(filePath,FileMode.Create))
-                {
-                    events.FrontImg.CopyTo(fileStream);
-                }
-            }
-            return uniqueFileName;
-        }
+       
         public List<SelectListItem> GetEventStatusOptions()
         {
             var options = new List<SelectListItem>

@@ -28464,12 +28464,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.bundle.scp.css))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\03b9ba68-0900-4fd6-a76c-cab5e2a644a0_Logo.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\12626999-28be-4d66-8d99-5c5063c477dc_background_2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/03b9ba68-0900-4fd6-a76c-cab5e2a644a0_Logo.jpg</RelativePath>
+      <RelativePath>uploads/12626999-28be-4d66-8d99-5c5063c477dc_background_2.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -28478,14 +28478,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\03b9ba68-0900-4fd6-a76c-cab5e2a644a0_Logo.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\12626999-28be-4d66-8d99-5c5063c477dc_background_2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b14a757-beef-47a3-af06-088d792d5d03_trienlamcongnghe.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\19132f57-7dd8-491a-b2ad-dfe0605e653d_Logo.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/1b14a757-beef-47a3-af06-088d792d5d03_trienlamcongnghe.jpg</RelativePath>
+      <RelativePath>uploads/19132f57-7dd8-491a-b2ad-dfe0605e653d_Logo.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -28494,14 +28494,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\1b14a757-beef-47a3-af06-088d792d5d03_trienlamcongnghe.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\19132f57-7dd8-491a-b2ad-dfe0605e653d_Logo.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\44b1e151-8577-44d7-afda-1dd75c78e5d2_hero-bg.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3029653b-73b9-4e5b-abdc-08206c87afac_background_2.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/44b1e151-8577-44d7-afda-1dd75c78e5d2_hero-bg.jpg</RelativePath>
+      <RelativePath>uploads/3029653b-73b9-4e5b-abdc-08206c87afac_background_2.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -28510,14 +28510,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\44b1e151-8577-44d7-afda-1dd75c78e5d2_hero-bg.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3029653b-73b9-4e5b-abdc-08206c87afac_background_2.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5171ad31-9466-46c2-8207-83c551c477d9_background_2.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3e673cb5-da24-4d7e-9313-ca126fff1832_hero-bg.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/5171ad31-9466-46c2-8207-83c551c477d9_background_2.jpg</RelativePath>
+      <RelativePath>uploads/3e673cb5-da24-4d7e-9313-ca126fff1832_hero-bg.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -28526,14 +28526,14 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5171ad31-9466-46c2-8207-83c551c477d9_background_2.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\3e673cb5-da24-4d7e-9313-ca126fff1832_hero-bg.jpg))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\52d2ca10-733f-4f16-b5e1-082eacefba9e_hotels-3.jpg))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\4a317079-1456-481e-b98b-daa576859e30_xuhuongcongnghe.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/52d2ca10-733f-4f16-b5e1-082eacefba9e_hotels-3.jpg</RelativePath>
+      <RelativePath>uploads/4a317079-1456-481e-b98b-daa576859e30_xuhuongcongnghe.jpg</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -28542,263 +28542,7 @@
       <AssetTraitValue></AssetTraitValue>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\52d2ca10-733f-4f16-b5e1-082eacefba9e_hotels-3.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5cf2d967-8288-400b-9348-2516b8c6b24c_Logo.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/5cf2d967-8288-400b-9348-2516b8c6b24c_Logo.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\5cf2d967-8288-400b-9348-2516b8c6b24c_Logo.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\60584520-caf3-4071-ae2c-c176250e41bc_hotels-3.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/60584520-caf3-4071-ae2c-c176250e41bc_hotels-3.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\60584520-caf3-4071-ae2c-c176250e41bc_hotels-3.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\643b6265-cadf-4790-a0a3-391b2a394f7c_background_login.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/643b6265-cadf-4790-a0a3-391b2a394f7c_background_login.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\643b6265-cadf-4790-a0a3-391b2a394f7c_background_login.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6d9430c1-0a3a-44c3-91e8-801b1481c483_hotels-3.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/6d9430c1-0a3a-44c3-91e8-801b1481c483_hotels-3.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\6d9430c1-0a3a-44c3-91e8-801b1481c483_hotels-3.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7a8a238d-e247-49e5-b724-42627d529230_background_2.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/7a8a238d-e247-49e5-b724-42627d529230_background_2.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7a8a238d-e247-49e5-b724-42627d529230_background_2.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7b29c383-5a1f-4a40-9d07-76e1c026adc6_background_2.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/7b29c383-5a1f-4a40-9d07-76e1c026adc6_background_2.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\7b29c383-5a1f-4a40-9d07-76e1c026adc6_background_2.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8638723d-69da-4360-acc1-5f96e96b7aff_hero-bg.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/8638723d-69da-4360-acc1-5f96e96b7aff_hero-bg.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8638723d-69da-4360-acc1-5f96e96b7aff_hero-bg.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8b71bb82-d53f-4cf1-ac5a-9a94d250c026_hero-bg.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/8b71bb82-d53f-4cf1-ac5a-9a94d250c026_hero-bg.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8b71bb82-d53f-4cf1-ac5a-9a94d250c026_hero-bg.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a578009e-58b3-4eab-b509-fcd14ed688b4_background_2.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/a578009e-58b3-4eab-b509-fcd14ed688b4_background_2.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\a578009e-58b3-4eab-b509-fcd14ed688b4_background_2.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b58a03b1-b415-4dc4-9158-e3c973b05b5d_Logo.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/b58a03b1-b415-4dc4-9158-e3c973b05b5d_Logo.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\b58a03b1-b415-4dc4-9158-e3c973b05b5d_Logo.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\background_login.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/background_login.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\background_login.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c3f28956-49be-4c6b-bda8-485a12566428_background_2.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/c3f28956-49be-4c6b-bda8-485a12566428_background_2.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\c3f28956-49be-4c6b-bda8-485a12566428_background_2.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\cbe7d9c2-c1f9-4b39-b292-5ed3780ace11_Logo.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/cbe7d9c2-c1f9-4b39-b292-5ed3780ace11_Logo.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\cbe7d9c2-c1f9-4b39-b292-5ed3780ace11_Logo.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\df45bd2f-d699-47c1-ac9e-904469450670_hotels-2.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/df45bd2f-d699-47c1-ac9e-904469450670_hotels-2.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\df45bd2f-d699-47c1-ac9e-904469450670_hotels-2.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9a8bbc7-12f4-4d9b-b70d-a2eeec45ec50_hotels-3.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/e9a8bbc7-12f4-4d9b-b70d-a2eeec45ec50_hotels-3.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\e9a8bbc7-12f4-4d9b-b70d-a2eeec45ec50_hotels-3.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\hero-bg.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/hero-bg.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\hero-bg.jpg))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\4a317079-1456-481e-b98b-daa576859e30_xuhuongcongnghe.jpg))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\Logo.jpg))">
       <SourceType>Package</SourceType>
@@ -28815,22 +28559,6 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\Logo.jpg))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\trienlamcongnghe.jpg))">
-      <SourceType>Package</SourceType>
-      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
-      <RelativePath>uploads/trienlamcongnghe.jpg</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\trienlamcongnghe.jpg))</OriginalItemSpec>
     </StaticWebAsset>
   </ItemGroup>
 </Project>

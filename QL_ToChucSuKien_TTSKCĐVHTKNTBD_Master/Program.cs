@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers;
@@ -13,11 +14,16 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("QL_ToChucSuKien_TTSKCĐVHTKNTBD_MasterConnection")));
 
 // Thêm các dịch vụ vào container
+builder.Services.Configure<FormOptions>(options =>
+{
+    options.MultipartBodyLengthLimit = 104857600; // 100 MB
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
+builder.Services.AddAuthorization();
 builder.Services.AddSession(options =>
 {
-    /*options.IdleTimeout = TimeSpan.FromSeconds(10);*/ // Thời gian timeout ngắn để dễ test
+    options.IdleTimeout = TimeSpan.FromSeconds(30);
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true; // Cookie session là bắt buộc
 });
@@ -26,10 +32,11 @@ builder.Services.AddSession(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.ExpireTimeSpan = TimeSpan.FromHours(10); // Thời gian tồn tại của cookie
-        options.LoginPath = "/Account/Login";
-        options.LoginPath = "/Account/Logout";// Đường dẫn đến trang đăng nhập
+        options.LoginPath = "/Admin/Account/Login";
+        options.LogoutPath = "/Admin/Account/Logout";
+        options.AccessDeniedPath = "/Admin/Account/AccessDenied";
     });
+
 // Cấu hình cho phép yêu cầu Ajax từ các miền khác
 builder.Services.AddCors(options =>
 {

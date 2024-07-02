@@ -23,10 +23,10 @@
         </div>
         <div class="form-group">
             <label asp-for="FrontImg"></label>
-            <input asp-for="FrontImg" class="form-control-file" accept="image/*" id="FLFrontImage"
-                   onchange="previewImage(this);">
-            <img id="imagePreview" src="" alt="Image" width="150" height="150" style="border: 1px solid #ccc; margin-top: 10px; display: none;" />
+            <input asp-for="FrontImg" class="form-control-file" accept="image/*" id="FLFrontImage" onchange="previewImage(this);">
+            <img id="imagePreview" src="" alt="Image Preview" width="150" height="150" style="border: 1px solid #ccc; margin-top: 10px; display: none;" />
         </div>
+
         <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
@@ -41,24 +41,17 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="form-group" id="LocationGroup">
+               @*  <div class="form-group" id="LocationGroup">
                     <label asp-for="EventLocation"></label>
                     <select asp-for="EventLocation" class="form-control" asp-items="@ViewBag.EventLocations">
                         <option value="">Chọn địa điểm</option>
                     </select>
                     <span asp-validation-for="EventLocation" class="text-danger"></span>
-                </div>
-                <div class="form-group" id="newLocationGroup" style="display: none;">
+                </div> *@
+                <div class="form-group" id="newLocationGroup">
                     <label>Nhập mới địa điểm:</label>
-                    <input type="text" id="newLocation" name="NewLocation" class="form-control" />
+                    <input type="text" asp-for="EventLocation" class="form-control" />
                     <span asp-validation-for="EventLocation" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="EventStatus"></label>
-                    <select asp-for="EventStatus" class="form-control" asp-items="@ViewBag.SelectStatus">
-                        <option value="">-- Chọn trạng thái --</option>
-                    </select>
-                    <span asp-validation-for="EventStatus" class="text-danger"></span>
                 </div>
             </div>
         </div>
@@ -72,5 +65,5 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-   
+
 }

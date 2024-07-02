@@ -1,4 +1,4 @@
-﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.ViewModels.UserProfileViewModel
+﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.UsersModel
 @{
     Layout = "~/Areas/Admin/Shared/_NavAdmin.cshtml";
 }
@@ -70,7 +70,7 @@
                     <img id="imagePreview" src="~/uploads/@Model.ProfilePicture" alt="Avatar" width="150" height="150" style="border: 1px; margin: 10px;" />
                 </div>
                 <h5 class="my-3">@Model.UserName</h5>
-                <p class="text-muted mb-1">Quản lý</p>
+                <p class="text-muted mb-1">Vai trò: @Model.Role?.RoleName</p>
             </div>
         </div>
         <div class="card mb-4 mb-lg-0">

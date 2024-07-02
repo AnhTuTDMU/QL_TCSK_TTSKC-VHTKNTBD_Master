@@ -4,13 +4,13 @@
 }
 
 <main class="main">
-    @if(Model.RunningEvents.Any())
+    @if (Model.RunningEvents != null && Model.RunningEvents.Any())
     {
         <section id="hero" class="hero section">
             @foreach (var item in Model.RunningEvents)
             {
                 <div class="event" data-aos="fade-in">
-                    <img src="~/uploads/@item.ImgUrl" alt="">
+                    <img src="@item.ImgUrl" alt="">
                     <div class="container d-flex flex-column align-items-center text-center mt-auto">
                         <h2 data-aos="fade-up" data-aos-delay="100">@item.EventName</h2>
                         <h4 data-aos="fade-up" data-aos-delay="100"><span>Thời gian: </span>@item.EventStartDate.ToString("dd/MM/yyyy") - @item.EventEndDate.ToString("dd/MM/yyyy")</h4>
@@ -61,32 +61,43 @@
             </h4>
             <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
         </div>
-      
-        <div class="card-group">
+        @if (Model.RunningEvents != null && Model.RunningEvents.Any())
+        {
+                    <div class="card-group">
             @foreach (var item in Model.RunningEvents)
             {
                 <div class="card m-1">
-                    <img class="card-img-top" src="~/uploads/@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
+                    <img class="card-img-top" src="@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@item.EventName</h5>
                         <p class="card-text">@item.EventDescription</p>
                         <div class="mt-auto">
                             <p class="card-text m-0"><small class="text-muted">Sự kiện sẽ kết thúc vào lúc: @item.EventEndDate.ToString("HH:mm")</small></p>
                             <p class="card-text"><small class="text-muted">Ngày: @item.EventEndDate.ToString("dd/MM/yyyy")</small></p>
-                            <a href="#" class="btn btn-primary mt-auto btnOpenRegisterModal" data-event-id="@item.EventID">Đăng ký tham gia</a>
+                            <a class="btn btn-primary mt-auto btnOpenRegisterModal" data-event-id="@item.EventID">Đăng ký tham gia</a>
                             <a href="@Url.Action("Detail", "Events", new { eventId = item.EventID })" class="btn btn-outline-dark mt-auto">Xem chi tiết</a>
 
                         </div>
                     </div>
                 </div>
             }
-        </div>
+        </div>            
+        }
+        else
+        {
+            <div class="card">
+                <div class="card-body">
+                    <h6 class="card-text"><i class="bi bi-info-circle"></i> Hiện không có sự kiện nào sắp diễn ra.</h6>
+                </div>
+            </div>
+        }
+
 
     </div>
     <div class="row mt-4">
         <nav aria-label="Page navigation example">
             <ul class="pagination d-flex justify-content-center">
-                @if (Model.RunningEvents.HasPreviousPage)
+                @if (Model.RunningEvents != null && Model.RunningEvents.HasPreviousPage)
                 {
                     <li class="page-item">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.RunningEvents.PageIndex - 1)">Quay lại</a>
@@ -116,20 +127,22 @@
             <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
         </div>
 
-        @if (Model.UpcomingEvents.Any())
+        @if (Model.UpcomingEvents != null && Model.UpcomingEvents.Any())
         {
             <div class="card-group">
                 @foreach (var item in Model.UpcomingEvents)
                 {
                     <div class="card m-1">
-                        <img class="card-img-top" src="~/uploads/@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
+                        <img class="card-img-top" src="@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@item.EventName</h5>
                             <p class="card-text">@item.EventDescription</p>
                             <div class="mt-auto">
                                 <p class="card-text m-0"><small class="text-muted">Sự kiện sẽ bắt đầu vào lúc: @item.EventStartDate.ToString("HH:mm")</small></p>
                                 <p class="card-text"><small class="text-muted">Ngày: @item.EventStartDate.ToString("dd/MM/yyyy")</small></p>
-                                <a href="#" class="btn btn-primary mt-auto">Đăng ký tham gia</a>
+                                <a class="btn btn-primary mt-auto btnOpenRegisterModal" data-event-id="@item.EventID">Đăng ký tham gia</a>
+                                <a href="@Url.Action("Detail", "Events", new { eventId = item.EventID })" class="btn btn-outline-dark mt-auto">Xem chi tiết</a>
+
                             </div>
                         </div>
                     </div>
@@ -180,13 +193,13 @@
             <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
         </div>
 
-        @if(Model.EndedEvents.Any())
+        @if (Model.EndedEvents != null && Model.EndedEvents.Any())
         {
             <div class="card-group">
                 @foreach (var item in Model.EndedEvents)
                 {
                     <div class="card m-1">
-                        <img class="card-img-top" src="~/uploads/@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
+                        <img class="card-img-top" src="@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@item.EventName</h5>
                             <p class="card-text">@item.EventDescription</p>
@@ -214,13 +227,13 @@
 </div>
 <!-- Modal -->
 <div class="modal fade" id="RegisterEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg" role="document" style="margin-top: 200px;">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="createEventModalLabel">Đăng ký tham gia sự kiện</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="closeModalButton">
                     <span aria-hidden="true">&times;</span>
-                </button>
+                    </button>
             </div>
             <div class="modal-body">
                 <div id="RegisterEventModalContent"></div>
@@ -229,11 +242,11 @@
     </div>
 </div>
 
-
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
         $(document).ready(function () {
+            // Xử lý khi click vào nút mở modal đăng ký sự kiện
             $('.btnOpenRegisterModal').click(function () {
                 var eventId = $(this).data('event-id');
                 $.ajax({
@@ -250,24 +263,32 @@
                 });
             });
 
+            // Xử lý khi click vào nút "Đóng" trong modal
+            $('#closeModalButton').click(function () {
+                $('#RegisterEventModal').modal('hide');
+            });
+
             // Xử lý khi form được submit (ví dụ: sự kiện click nút Đăng ký)
             $('#RegisterEventModal').on('submit', 'form', function (e) {
-                e.preventDefault(); // Ngăn chặn hành động mặc định của form
+                e.preventDefault();
 
-                var formData = $(this).serialize(); // Lấy dữ liệu từ form
-
+                var formData = $(this).serialize();
                 $.ajax({
-                    url: '@Url.Action("Register", "Events")',
+                    url: '/Events/Register',
                     type: 'POST',
                     data: formData,
                     success: function (response) {
                         if (response.success) {
-                            // Xử lý khi đăng ký thành công, ví dụ như hiển thị thông báo
                             alert('Đăng ký thành công!');
-                            $('#RegisterEventModal').modal('hide'); // Đóng modal sau khi đăng ký thành công
+                            $('#RegisterEventModal').modal('hide');
                         } else {
-                            // Xử lý khi đăng ký không thành công, hiển thị lỗi nếu có
-                            alert('Đăng ký không thành công. Vui lòng kiểm tra lại thông tin.');
+                            var errorMessage = response.message || 'Đăng ký không thành công. Vui lòng kiểm tra lại thông tin.';
+                            alert(errorMessage);
+                            if (response.errors) {
+                                $.each(response.errors, function (index, error) {
+                                    alert(error);
+                                });
+                            }
                         }
                     },
                     error: function () {
@@ -276,29 +297,27 @@
                 });
             });
         });
+        // xử lý chuyển ảnh
+        document.addEventListener('DOMContentLoaded', function () {
+            let currentEventIndex = 0;
+            const events = document.querySelectorAll('.event');
+            const totalEvents = events.length;
 
+            function showEvent(index) {
+                events.forEach(event => event.style.display = 'none');
+                events[index].style.display = 'block';
+            }
 
+            function nextEvent() {
+                currentEventIndex = (currentEventIndex + 1) % totalEvents;
+                showEvent(currentEventIndex);
+            }
 
-    // xử lý chuyển ảnh
-    document.addEventListener('DOMContentLoaded', function () {
-        let currentEventIndex = 0;
-        const events = document.querySelectorAll('.event');
-        const totalEvents = events.length;
-
-        function showEvent(index) {
-            events.forEach(event => event.style.display = 'none');
-            events[index].style.display = 'block';
-        }
-
-        function nextEvent() {
-            currentEventIndex = (currentEventIndex + 1) % totalEvents;
             showEvent(currentEventIndex);
-        }
+            setInterval(nextEvent, 10000);
+        });
+    </script>
 
-        showEvent(currentEventIndex);
-        setInterval(nextEvent, 10000);
-    });
-</script>
 }
+<script src="~/js/index.js"></script>
 
-<script src="./js/index.js"></script>

@@ -22,13 +22,12 @@
     <!-- Vendor JS Files -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="./lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./lib/bootstrap/dist/"></script>
-    <script src="./js/index.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/index.js"></script>
 
     <link rel="stylesheet" href="~/css/index.css" />
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100 scrolled">
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
@@ -58,15 +57,16 @@
                     <li><a href="#" class="">Dịch vụ<br></a></li>
                     <li><a href="#" class="">Ưu đãi<br></a></li>
                     <li><a href="#contact">Về chúng tôi</a></li>
-                    <partial name="_LoginPartial" />
+             
 
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
         </div>
+   
     </header>
-    <div>
+    <div class="main">
         @RenderBody()
     </div>
     <footer class="footer fixed-bottom bg-light">

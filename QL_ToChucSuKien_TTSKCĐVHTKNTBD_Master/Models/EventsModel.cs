@@ -32,13 +32,14 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models
         public string EventLocation { get; set; } = string.Empty;
         [Display(Name = "Hình")]
         public string ImgUrl { get; set; } = string.Empty;
-  
-        [Required(ErrorMessage = "Trạng thái là bắt buộc.")]
+ 
         [Display(Name = "Trạng thái")]
         public string EventStatus { get; set; } = string.Empty;
         [Display(Name = "Chọn ảnh")]
         [NotMapped]
         public IFormFile? FrontImg { get; set; }
+        public ICollection<EventRegistrationModel> ? Registrations { get; set; }
 
+        public int NumberRegistrations { get; set; }
     }
 }

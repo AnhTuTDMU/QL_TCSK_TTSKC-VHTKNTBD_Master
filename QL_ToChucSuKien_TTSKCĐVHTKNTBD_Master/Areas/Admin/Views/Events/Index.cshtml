@@ -26,29 +26,29 @@
         {
             <tr>
                 <td>
-                    <img src="~/uploads/@item.ImgUrl" width="75px" height="75px" style="border: 1px" />
+                    <img src="@item.ImgUrl" style="width: 75px; height: 75px"/>
+
                 </td>
                 <td>@Html.DisplayFor(modelItem => item.EventName)</td>
                 <td>@item.EventStartDate.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>@item.EventEndDate.ToString("dd/MM/yyyy HH:mm")</td>
                 <td>@Html.DisplayFor(modelItem => item.EventLocation)</td>
                 <td style="width: 150px">
-                    @* <input type="checkbox" class="status-checkbox" data-id="@item.EventID" @(item.EventStatus == "1" ? "checked" : "") /> *@
                     <span>
                         @{
                             switch (item.EventStatus)
                             {
                                 case "1":
-                                    @:Đang diễn ra
+                                        @:Đang diễn ra
                                     break;
                                 case "0":
-                                    @:Đã kết thúc
+                                        @:Đã kết thúc
                                     break;
                                 case "2":
-                                    @:Sắp diễn ra
+                                        @:Sắp diễn ra
                                     break;
                                 default:
-                                    @:Không xác định
+                                        @:Không xác định
                                     break;
                             }
                         }
@@ -65,6 +65,12 @@
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>
+                <td>
+                    <a class="detail-link" data-id="@item.EventID" title="Details">
+                        <i class="fas fa-info-circle"></i>
+                    </a>
+                </td>
+
             </tr>
         }
     </tbody>
@@ -90,49 +96,49 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
-       $(document).ready(function () {
-    // Sự kiện click vào nút "Tạo mới sự kiện"
-    $('#btnOpenCreateModal').click(function () {
-        $.ajax({
-            url: '@Url.Action("Create", "Events", new { area = "Admin" })',
-            type: 'GET',
-            success: function (response) {
-                $('#createEventModalContent').html(response);        
-                $('#createEventModal').modal('show');
-            },
-            error: function () {
-                alert('Có lỗi xảy ra khi tải form tạo mới sự kiện.');
-            }
-        });
-    });
-          
-    // Sự kiện click vào nút "Lưu" trong form "Tạo mới sự kiện"
-    $(document).on('click', '#btnCreateEvent', function () {
-        var formData = new FormData($('#createEventForm')[0]);
+        $(document).ready(function () {
+            // Sự kiện click vào nút "Tạo mới sự kiện"
+            $('#btnOpenCreateModal').click(function () {
+                $.ajax({
+                    url: '@Url.Action("Create", "Events", new { area = "Admin" })',
+                    type: 'GET',
+                    success: function (response) {
+                        $('#createEventModalContent').html(response);
+                        $('#createEventModal').modal('show');
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi tải form tạo mới sự kiện.');
+                    }
+                });
+            });
 
-        $.ajax({
-            url: '@Url.Action("Create", "Events")',
-            type: 'POST',
-            data: formData,
-            processData: false,
-            contentType: false,
-            success: function (result) {
-                if (result.success) {
-                    alert(result.message);
-                    $('#createEventModal').modal('hide');
-                    window.location.reload();
-                } else {
-                    var errors = result.errors.join('<br>');
-                    alert('Đã xảy ra lỗi:<br>' + errors);
-                }
-            },
-            error: function () {
-                alert('Đã xảy ra lỗi khi gửi yêu cầu.');
-            }
+            // Sự kiện click vào nút "Lưu" trong form "Tạo mới sự kiện"
+            $(document).on('click', '#btnCreateEvent', function () {
+                var formData = new FormData($('#createEventForm')[0]);
 
-        });
+                $.ajax({
+                    url: '@Url.Action("Create", "Events")',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (result) {
+                        if (result.success) {
+                            alert(result.message);
+                            $('#createEventModal').modal('hide');
+                            window.location.reload();
+                        } else {
+                            var errors = result.errors.join('<br>');
+                            alert('Đã xảy ra lỗi:<br>' + errors);
+                        }
+                    },
+                    error: function () {
+                        alert('Đã xảy ra lỗi khi gửi yêu cầu.');
+                    }
 
-    });
+                });
+
+            });
             // Sự kiện click vào nút "Chỉnh sửa" của một sự kiện
             $(document).on('click', '.edit-link', function () {
                 var eventId = $(this).data('id');
@@ -150,7 +156,22 @@
                     }
                 });
             });
+            $(document).on('click', '.detail-link', function () {
+                var eventId = $(this).data('id');
 
+                $.ajax({
+                    url: '@Url.Action("Details", "Events", new { area = "Admin" })',
+                    type: 'GET',
+                    data: { id: eventId },
+                    success: function (response) {
+                        $('#createEventModalContent').html(response);
+                        $('#createEventModal').modal('show');
+                    },
+                    error: function () {
+                        alert('Có lỗi xảy ra khi tải form chỉnh sửa sự kiện.');
+                    }
+                });
+            });
             // Sự kiện click vào nút "Lưu" trong form "Chỉnh sửa sự kiện"
             $(document).on('click', '#btnSaveEvent', function () {
                 var formData = new FormData($('#editEventForm')[0]);
@@ -176,29 +197,9 @@
                     }
                 });
             });
-    // Sự kiện click vào nút "Đóng" trong modal
-    $(document).on('click', '[data-dismiss="modal"]', function () {
-        $('#createEventModal').modal('hide');
-    });
-            // Xử lý sự kiện thay đổi checkbox
-            $('.status-checkbox').change(function () {
-                var eventId = $(this).data('id');
-                var isChecked = $(this).is(':checked');
-                var status = isChecked ? '1' : '2'; 
-                $.ajax({
-                    url: '@Url.Action("UpdateStatus", "Events", new { area = "Admin" })',
-                    type: 'POST',
-                    data: {
-                        id: eventId, 
-                        status: status
-                    },
-                    success: function (response) {
-                        alert('Trạng thái sự kiện đã được cập nhật.');
-                    },
-                    error: function (xhr, status, error) {
-                        alert('Có lỗi xảy ra khi cập nhật trạng thái sự kiện.');
-                    }
-                });
+            // Sự kiện click vào nút "Đóng" trong modal
+            $(document).on('click', '[data-dismiss="modal"]', function () {
+                $('#createEventModal').modal('hide');
             });
 
             // Xử lý sự kiện click xóa sự kiện
@@ -223,7 +224,22 @@
                 }
             });
         });
-     
+            function previewImage(input) {
+                var preview = document.getElementById('imagePreview');
+                var file = input.files[0];
+
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+
     </script>
 
 }

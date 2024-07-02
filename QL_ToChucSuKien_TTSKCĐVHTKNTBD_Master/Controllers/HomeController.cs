@@ -12,7 +12,6 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public HomeController(ApplicationDbContext context)
         {
             _context = context;
@@ -22,7 +21,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
         public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
         {
             var currentDate = DateTime.Now;
-
+            await AutoUpdateEventStatus();
             var runningEvents = await _context.Events
                 .Where(e => e.EventStatus == "1")
                 .OrderByDescending(e => e.EventStartDate)
@@ -51,15 +50,32 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
             return View(viewModel);
         }
 
-
-        public IActionResult Container()
+        public async Task<IActionResult> AutoUpdateEventStatus()
         {
-            return PartialView();
-        }
+            var events = await _context.Events.ToListAsync();
+            var currentDate = DateTime.Now;
 
-        public IActionResult Privacy()
-        {
-            return View();
+            foreach (var eventItem in events)
+            {
+                if (eventItem.EventEndDate < currentDate)
+                {
+                    eventItem.EventStatus = "0";
+                    _context.Update(eventItem);
+                }
+                else if (eventItem.EventStartDate > currentDate)
+                {
+                    eventItem.EventStatus = "2";
+                    _context.Update(eventItem);
+                }
+                else
+                {
+                    eventItem.EventStatus = "1";
+                    _context.Update(eventItem);
+                }
+            }
+
+            await _context.SaveChangesAsync();
+            return Json(new { success = true, message = "Trạng thái sự kiện đã được tự động cập nhật." });
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

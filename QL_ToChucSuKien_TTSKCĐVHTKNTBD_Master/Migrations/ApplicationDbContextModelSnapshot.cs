@@ -22,6 +22,54 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.CustomersModel", b =>
+                {
+                    b.Property<int>("CustomerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
+
+                    b.Property<string>("CustomerEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CustomerPhone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CustomerId");
+
+                    b.ToTable("Customers");
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventRegistrationModel", b =>
+                {
+                    b.Property<int>("RegistrationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RegistrationId"));
+
+                    b.Property<int>("CustomerId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("RegistrationDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("RegistrationId");
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("EventId");
+
+                    b.ToTable("EventRegistrations");
+                });
+
             modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventsModel", b =>
                 {
                     b.Property<int>("EventID")
@@ -56,9 +104,46 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("NumberRegistrations")
+                        .HasColumnType("int");
+
                     b.HasKey("EventID");
 
                     b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.RolesModel", b =>
+                {
+                    b.Property<int>("RoleId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
+
+                    b.Property<string>("Permissions")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("RoleId");
+
+                    b.ToTable("Roles");
+
+                    b.HasData(
+                        new
+                        {
+                            RoleId = 1,
+                            Permissions = "[\"C\\u00F4ng vi\\u1EC7c A\",\"C\\u00F4ng vi\\u1EC7c C\"]",
+                            RoleName = "Quản lý"
+                        },
+                        new
+                        {
+                            RoleId = 2,
+                            Permissions = "[\"C\\u00F4ng vi\\u1EC7c B\",\"C\\u00F4ng vi\\u1EC7c D\"]",
+                            RoleName = "Trưởng phòng"
+                        });
                 });
 
             modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.UsersModel", b =>
@@ -85,6 +170,9 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserEmail")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -95,7 +183,73 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
 
                     b.HasKey("UserId");
 
+                    b.HasIndex("RoleId");
+
                     b.ToTable("Users");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = 1,
+                            Address = "Bình Dương",
+                            Password = "IP/yw120FvWx13bNsVOPMGYHxop2ubZh2Fpzz6gVgm4=",
+                            PhoneNumber = "0332613703",
+                            ProfilePicture = "",
+                            RoleId = 1,
+                            UserEmail = "AnhTu080302@gmail.com",
+                            UserName = "Nguyễn Anh Tú"
+                        },
+                        new
+                        {
+                            UserId = 2,
+                            Address = "Bình Dương",
+                            Password = "GjPebaQmwDWPA0/xh4gBON4Y6bndNyrJ1b5l0iycUzo=",
+                            PhoneNumber = "0123456789",
+                            ProfilePicture = "",
+                            RoleId = 2,
+                            UserEmail = "XT123@gmail.com",
+                            UserName = "Mai Xuân Tiền"
+                        });
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventRegistrationModel", b =>
+                {
+                    b.HasOne("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.CustomersModel", "Customers")
+                        .WithMany("Registrations")
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventsModel", "Event")
+                        .WithMany("Registrations")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Customers");
+
+                    b.Navigation("Event");
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.UsersModel", b =>
+                {
+                    b.HasOne("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.RolesModel", "Role")
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Role");
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.CustomersModel", b =>
+                {
+                    b.Navigation("Registrations");
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventsModel", b =>
+                {
+                    b.Navigation("Registrations");
                 });
 #pragma warning restore 612, 618
         }

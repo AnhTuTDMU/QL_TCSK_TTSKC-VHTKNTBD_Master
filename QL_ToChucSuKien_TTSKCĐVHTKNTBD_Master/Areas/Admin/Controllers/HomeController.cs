@@ -29,8 +29,22 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             await AutoUpdateEventStatus();
-            return View();
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == userId);
+
+            if (user == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
+            return View(user);
         }
+
 
         public async Task<IActionResult> AutoUpdateEventStatus()
         {
@@ -59,22 +73,6 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return Json(new { success = true, message = "Trạng thái sự kiện đã được tự động cập nhật." });
         }
-        [HttpPost]
-        public async Task<IActionResult> Logout(string returnUrl = "")
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            HttpContext.Session.Remove("Username");
-
-            if (returnUrl != null)
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home", new { area = "default" });
-            }
-        }
-
         [HttpGet]
         public IActionResult Profile()
         {
@@ -86,14 +84,17 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
 
             var user = _context.Users
                 .Where(u => u.UserId == userId)
-                .Select(u => new UserProfileViewModel
+                .Select(u => new UsersModel
                 {
                     UserId = u.UserId,
                     UserName = u.UserName,
                     UserEmail = u.UserEmail,
                     Address = u.Address,
                     ProfilePicture = u.ProfilePicture,
-                    PhoneNumber = u.PhoneNumber
+                    PhoneNumber = u.PhoneNumber,
+                    RoleId = u.RoleId,
+                    Role = u.Role,
+
                 })
                 .FirstOrDefault();
 
@@ -101,12 +102,12 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
+            var roleName = user.Role?.RoleName;
             return View(user);
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateProfile(UserProfileViewModel model)
+        public async Task<IActionResult> UpdateProfile(UsersModel model)
         {
             if (ModelState.IsValid)
             {

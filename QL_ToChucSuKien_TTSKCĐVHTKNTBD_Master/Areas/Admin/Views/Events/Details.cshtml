@@ -1,0 +1,35 @@
+﻿@* @model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventRegistrationModel
+
+@{
+    ViewData["Title"] = "Event Registration Detail";
+    Layout = null; 
+
+@if (Model != null && Model.Any())
+{
+    <div class="container">
+        <h2>Danh sách đăng ký sự kiện</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Sự kiện</th>
+                    <th>Khách hàng</th>
+                    <th>Ngày đăng ký</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var registration in Model)
+                {
+                    <tr>
+                        <td>@registration.Event.EventName</td>
+                        <td>@registration.Customer.CustomerName (@registration.Customer.CustomerEmail)</td>
+                        <td>@registration.RegistrationDate.ToString("dd/MM/yyyy")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+else
+{
+    <p>Không có đăng ký sự kiện nào.</p>
+} *@

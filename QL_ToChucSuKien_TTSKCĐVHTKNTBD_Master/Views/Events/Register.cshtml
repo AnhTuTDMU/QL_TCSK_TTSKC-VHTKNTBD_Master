@@ -1,35 +1,38 @@
-﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.ViewModels.EventRegistrationViewModel
+﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventRegistrationModel
 
 <form id="registerForm">
+    @Html.AntiForgeryToken()
     <input type="hidden" name="EventId" value="@Model.EventId" />
     <div class="row">
         <div class="col-md-6">
             <div class="form-group">
-                <label for="EventTitle">Tên đề tài</label>
-                <input type="text" class="form-control" id="EventName" name="EventName" value="@Model.EventName" disabled>
+                <h5 for="EventTitle">Tên đề tài</h5>
+                <h6 style="color: blue">@Model.Event?.EventName</h6>
             </div>
             <div class="form-group">
-                <label for="EventTitle">Nơi diễn ra</label>
-                <img src="~/uploads/@Model.ImgUrl" width="150px" height="150px"/>
+                <h5 for="EventTitle">Địa điểm</h5>
+                <h6 style="color: blue">@Model.Event?.EventLocation</h6>
+                <img src="@Model.Event?.ImgUrl" width="100%" height="100%" />
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="FullName">Họ và tên</label>
-                <input type="text" class="form-control" id="FullName" name="FullName" required>
+                <label class="control-label">Họ và tên</label>
+                <input asp-for="Customers.CustomerName" class="form-control" />
+                <span asp-validation-for="Customers.CustomerName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="Email">Email</label>
-                <input type="email" class="form-control" id="Email" name="Email" required>
+                <label class="control-label">Email</label>
+                <input asp-for="Customers.CustomerEmail" class="form-control" />
+                <span asp-validation-for="Customers.CustomerEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label for="PhoneNumber">Số điện thoại</label>
-                <input type="tel" class="form-control" id="PhoneNumber" name="PhoneNumber" required>
+                <label class="control-label">Số điện thoại</label>
+                <input asp-for="Customers.CustomerPhone" class="form-control" />
+                <span asp-validation-for="Customers.CustomerPhone" class="text-danger"></span>
             </div>
 
             <button type="submit" class="btn btn-primary">Đăng ký</button>
         </div>
     </div>
-    
-
 </form>
