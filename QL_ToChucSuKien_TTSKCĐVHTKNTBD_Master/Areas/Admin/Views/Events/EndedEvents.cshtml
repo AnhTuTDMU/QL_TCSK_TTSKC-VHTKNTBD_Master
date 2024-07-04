@@ -1,0 +1,152 @@
+﻿@model IEnumerable<QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventsModel>
+@{
+    ViewData["Title"] = "Danh sách sự kiện";
+    Layout = "~/Areas/Admin/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sự kiện đã kết thúc</h2>
+
+<a href="#" id="btnOpenCreateModal" class="btn btn-success m-2">Tạo mới sự kiện</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ImgUrl)</th>
+            <th>@Html.DisplayNameFor(model => model.EventName)</th>
+            <th>@Html.DisplayNameFor(model => model.EventStartDate)</th>
+            <th>@Html.DisplayNameFor(model => model.EventEndDate)</th>
+            <th>@Html.DisplayNameFor(model => model.EventLocation)</th>
+            <th>@Html.DisplayNameFor(model => model.EventStatus)</th>
+            <th>@Html.DisplayNameFor(model => model.NumberRegistrations)</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <img src="@item.ImgUrl" style="width: 75px; height: 75px" />
+
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.EventName)</td>
+                <td>@item.EventStartDate.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@item.EventEndDate.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@Html.DisplayFor(modelItem => item.EventLocation)</td>
+                <td style="width: 150px">
+                    <span>
+                        @{
+                            switch (item.EventStatus)
+                            {
+                                case "1":
+                                    @:Đang diễn ra
+                                    break;
+                                case "0":
+                                    @:Đã kết thúc
+                                    break;
+                                case "2":
+                                    @:Sắp diễn ra
+                                    break;
+                                default:
+                                    @:Không xác định
+                                    break;
+                            }
+                        }
+                    </span>
+
+                </td>
+                <td>@item.NumberRegistrations</td>
+                <td>
+                    <a asp-controller="Events" asp-action="RegistrationList" asp-route-eventId="@item.EventID">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="createEventModal" tabindex="-1" role="dialog" aria-labelledby="createEventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createEventModalLabel">Tạo mới sự kiện</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="createEventModalContent"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/js/Events.js"></script>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $(document).ready(function () {
+            // Sự kiện click vào nút "Tạo mới sự kiện"
+            $('#btnOpenCreateModal').click(function () {
+                openModal('@Url.Action("Create", "Events", new { area = "Admin" })');
+            });
+            // Sự kiện click vào nút "Lưu" trong form "Tạo mới sự kiện"
+            $(document).on('click', '#btnCreateEvent', function () {
+                var formData = new FormData($('#createEventForm')[0]);
+                ajaxPost('@Url.Action("Create", "Events")', formData);
+            });
+
+            // Sự kiện click vào nút "Chỉnh sửa" của một sự kiện
+            $(document).on('click', '.edit-link', function () {
+                var eventId = $(this).data('id');
+                openModal('@Url.Action("Edit", "Events", new { area = "Admin" })?id=' + eventId);
+            });
+
+
+            /* $(document).on('click', '.registration-list-link', function () {
+                var eventId = $(this).data('id');
+                openModal('@Url.Action("RegistrationList", "Events", new { area = "Admin" })?id=' + eventId);
+            });*/
+
+            // Sự kiện click vào nút "Lưu" trong form "Chỉnh sửa sự kiện"
+            $(document).on('click', '#btnSaveEvent', function () {
+                var formData = new FormData($('#editEventForm')[0]);
+                var eventId = $('input[name="EventID"]').val();
+                ajaxPost('@Url.Action("Edit", "Events")/' + eventId, formData);
+            });
+
+            // Sự kiện click vào nút "Đóng" trong modal
+            $(document).on('click', '[data-dismiss="modal"]', function () {
+                $('#createEventModal').modal('hide');
+            });
+
+            // Xử lý sự kiện click xóa sự kiện
+            $('.delete-link').click(function () {
+                if (confirm('Bạn có chắc chắn muốn xóa sự kiện này?')) {
+                    var eventId = $(this).data('id');
+                    ajaxPost('@Url.Action("Delete", "Events", new { area = "Admin" })/' + eventId, {});
+                }
+            });
+
+        });
+        function previewImage(input) {
+            var preview = document.getElementById('imagePreview');
+            var file = input.files[0];
+
+            if (file) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+
+                reader.readAsDataURL(file);
+            }
+        }
+
+    </script>
+
+}

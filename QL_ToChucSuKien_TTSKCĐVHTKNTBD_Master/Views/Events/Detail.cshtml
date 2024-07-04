@@ -6,23 +6,23 @@
 }
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row" style="margin-top: 100px; margin-bottom: 70px">
+        <div class="col-md-5">
             <img src="@Model.ImgUrl" width="100%" height="100%" />
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-7">
               <div>
-                <span>Tên sự kiện</span
                 <h2>@Model.EventName</h2>
               </div>
              <div>
                 <span>Địa điểm diễn ra tại</span>
-                <h2> @Model.EventLocation</h2>
+                <span style="font-weight: 700"> @Model.EventLocation</span>
                 <p>Số lượng đăng ký: @Model.NumberRegistrations</p>
              </div>
              <div>
-                 <p>Mô tả sự kiện: @Model.EventDescription</p> 
+                <p>Mô tả sự kiện: @Html.Raw(Model.EventDescription.Replace("\n", "<br>"))</p>
+
              </div
         </div>
     </div>

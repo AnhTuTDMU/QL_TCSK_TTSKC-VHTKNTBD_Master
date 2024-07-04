@@ -9,6 +9,7 @@ using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models;
 using System.Security.Cryptography;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
 {
@@ -111,6 +112,11 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             return RedirectToAction("Login", "Account", new { area = "Admin" });
         }
 
+        [AllowAnonymous]
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
 
         [HttpGet]
         private string HashPassword(string password)

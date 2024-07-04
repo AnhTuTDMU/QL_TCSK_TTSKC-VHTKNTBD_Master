@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <PackageReference Include="Bootstrap.datepicker" Version="1.8.0.1" />
+    <PackageReference Include="EPPlus" Version="7.2.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.6" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />

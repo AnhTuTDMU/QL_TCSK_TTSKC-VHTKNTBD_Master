@@ -5,6 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers;
 using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Data;
 using System.Globalization;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Filters;
+using OfficeOpenXml;
 
 var supportedCultures = new[] { new CultureInfo("vi-VN") };
 var builder = WebApplication.CreateBuilder(args);
@@ -13,14 +17,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("QL_ToChucSuKien_TTSKCĐVHTKNTBD_MasterConnection")));
 
+// Cấu hình LicenseContext
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 // Thêm các dịch vụ vào container
 builder.Services.Configure<FormOptions>(options =>
 {
     options.MultipartBodyLengthLimit = 104857600; // 100 MB
 });
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddAuthorization();
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(30);

@@ -19,8 +19,11 @@
                             <a href="https://www.youtube.com/watch?v=OHVHhSvDXo8" class="glightbox play-btn"></a>
                         </div>
                         <div data-aos="fade-up" data-aos-delay="400" style="margin: 20px">
-                            <a href="#" class="btn-success" style="padding: 10px; border-radius: 10px;">Đăng ký tham gia</a>
+                            <a class="btn btn-success mt-auto btnOpenRegisterModal" data-event-id="@item.EventID">
+                                <i class="bi bi-pencil-square"></i> Đăng ký tham gia
+                            </a>
                         </div>
+
                     </div>
                     <div class="about-info mt-auto position-relative">
                         <div class="container position-relative" data-aos="fade-up">
@@ -47,8 +50,8 @@
     }
     else
     {
-         <div class="event" data-aos="fade-in">
-            <img src="https://littleetoile.vn/wp-content/themes/lewis/assets/images/nodatafound.png" alt="">
+         <div style="text-align: center;">
+            <img src="https://img.freepik.com/free-vector/404-error-with-landscape-concept-illustration_114360-7898.jpg?size=626&ext=jpg&ga=GA1.1.2008272138.1719792000&semt=ais_user" alt="" style="display: block;margin: 0 auto;">
         </div>
     }
 
@@ -70,7 +73,7 @@
                     <img class="card-img-top" src="@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">@item.EventName</h5>
-                        <p class="card-text">@item.EventDescription</p>
+                            <p class="card-text" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;max-height: 3em; line-height: 1.5em;  ">@item.EventDescription</p>
                         <div class="mt-auto">
                             <p class="card-text m-0"><small class="text-muted">Sự kiện sẽ kết thúc vào lúc: @item.EventEndDate.ToString("HH:mm")</small></p>
                             <p class="card-text"><small class="text-muted">Ngày: @item.EventEndDate.ToString("dd/MM/yyyy")</small></p>
@@ -103,13 +106,13 @@
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.RunningEvents.PageIndex - 1)">Quay lại</a>
                     </li>
                 }
-                @for (int i = 1; i <= Model.RunningEvents.TotalPages; i++)
+                @for (int i = 1; i <= Model.RunningEvents?.TotalPages; i++)
                 {
                     <li class="page-item @(i == Model.RunningEvents.PageIndex ? "active" : "")">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
                     </li>
                 }
-                @if (Model.RunningEvents.HasNextPage)
+                @if (Model.RunningEvents != null && Model.RunningEvents.HasNextPage)
                 {
                     <li class="page-item">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.RunningEvents.PageIndex + 1)">Tiếp tục</a>
@@ -136,7 +139,7 @@
                         <img class="card-img-top" src="@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@item.EventName</h5>
-                            <p class="card-text">@item.EventDescription</p>
+                            <p class="card-text" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;max-height: 3em; line-height: 1.5em;  ">@item.EventDescription</p>
                             <div class="mt-auto">
                                 <p class="card-text m-0"><small class="text-muted">Sự kiện sẽ bắt đầu vào lúc: @item.EventStartDate.ToString("HH:mm")</small></p>
                                 <p class="card-text"><small class="text-muted">Ngày: @item.EventStartDate.ToString("dd/MM/yyyy")</small></p>
@@ -163,19 +166,19 @@
     <div class="row mt-4">
         <nav aria-label="Page navigation example">
             <ul class="pagination d-flex justify-content-center">
-                @if (Model.UpcomingEvents.HasPreviousPage)
+                @if (Model.UpcomingEvents != null && Model.UpcomingEvents.HasPreviousPage)
                 {
                     <li class="page-item">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.UpcomingEvents.PageIndex - 1)">Quay lại</a>
                     </li>
                 }
-                @for (int i = 1; i <= Model.UpcomingEvents.TotalPages; i++)
+                @for (int i = 1; i <= Model.UpcomingEvents?.TotalPages; i++)
                 {
                     <li class="page-item @(i == Model.UpcomingEvents.PageIndex ? "active" : "")">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@i">@i</a>
                     </li>
                 }
-                @if (Model.UpcomingEvents.HasNextPage)
+                @if (Model.UpcomingEvents != null && Model.UpcomingEvents.HasNextPage)
                 {
                     <li class="page-item">
                         <a class="page-link" asp-action="Index" asp-route-pageNumber="@(Model.UpcomingEvents.PageIndex + 1)">Tiếp tục</a>
@@ -184,12 +187,11 @@
             </ul>
         </nav>
     </div>
-    <div class="row p-3">
+    <div class="row p-3" id="EndedEvents">
         <div class="d-flex justify-content-between p-3">
             <h4 class="font-weight-bold" style="font-weight: 700">
                 <i class="bi bi-check-circle-fill text-success"></i> Sự kiện đã kết thúc
             </h4>
-
             <a class="btn btn-danger" role="button" data-bs-toggle="button" href="#">Tất cả</a>
         </div>
 
@@ -202,7 +204,7 @@
                         <img class="card-img-top" src="@item.ImgUrl" alt="Card image cap" style="object-fit: cover; height: 230px;">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">@item.EventName</h5>
-                            <p class="card-text">@item.EventDescription</p>
+                            <p class="card-text" style="display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;max-height: 3em; line-height: 1.5em;  ">@item.EventDescription</p>
                             <div class="mt-auto">
                                 <p class="card-text m-0"><small class="text-muted">Sự kiện đã kết thúc vào lúc: @item.EventEndDate.ToString("HH:mm")</small></p>
                                 <p class="card-text"><small class="text-muted">Ngày: @item.EventEndDate.ToString("dd/MM/yyyy")</small></p>
@@ -222,6 +224,30 @@
             </div>
         }
 
+        <div class="row mt-4">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-ended d-flex justify-content-center">
+                    @if (Model.EndedEvents != null && Model.EndedEvents.HasPreviousPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-action="Index" asp-route-endedPageNumber="@(Model.EndedEvents.PageIndex - 1)">Quay lại</a>
+                        </li>
+                    }
+                    @for (int i = 1; i <= Model.EndedEvents?.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == Model.EndedEvents.PageIndex ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-endedPageNumber="@i">@i</a>
+                        </li>
+                    }
+                    @if (Model.EndedEvents != null &&  Model.EndedEvents.HasNextPage)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" asp-action="Index" asp-route-endedPageNumber="@(Model.EndedEvents.PageIndex + 1)">Tiếp tục</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
     </div>
 
 </div>
@@ -245,6 +271,7 @@
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
     <script>
+        
         $(document).ready(function () {
             // Xử lý khi click vào nút mở modal đăng ký sự kiện
             $('.btnOpenRegisterModal').click(function () {
@@ -316,8 +343,10 @@
             showEvent(currentEventIndex);
             setInterval(nextEvent, 10000);
         });
+
     </script>
 
 }
+
 <script src="~/js/index.js"></script>
 

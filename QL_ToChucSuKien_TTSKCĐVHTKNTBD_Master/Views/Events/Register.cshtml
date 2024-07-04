@@ -1,9 +1,12 @@
 ﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventRegistrationModel
-
+@{
+    ViewData["Title"] = "Chi tiết sự kiện";
+    Layout = null;
+}
 <form id="registerForm">
     @Html.AntiForgeryToken()
     <input type="hidden" name="EventId" value="@Model.EventId" />
-    <div class="row">
+    <div class="row" style="margin-bottom: 50px">
         <div class="col-md-6">
             <div class="form-group">
                 <h5 for="EventTitle">Tên đề tài</h5>
@@ -18,21 +21,21 @@
         <div class="col-md-6">
             <div class="form-group">
                 <label class="control-label">Họ và tên</label>
-                <input asp-for="Customers.CustomerName" class="form-control" />
+                <input asp-for="Customers.CustomerName" class="form-control" required />
                 <span asp-validation-for="Customers.CustomerName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">Email</label>
-                <input asp-for="Customers.CustomerEmail" class="form-control" />
+                <input asp-for="Customers.CustomerEmail" class="form-control" required />
                 <span asp-validation-for="Customers.CustomerEmail" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label class="control-label">Số điện thoại</label>
-                <input asp-for="Customers.CustomerPhone" class="form-control" />
+                <input asp-for="Customers.CustomerPhone" class="form-control" required />
                 <span asp-validation-for="Customers.CustomerPhone" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary">Đăng ký</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 10px">Đăng ký</button>
         </div>
     </div>
 </form>

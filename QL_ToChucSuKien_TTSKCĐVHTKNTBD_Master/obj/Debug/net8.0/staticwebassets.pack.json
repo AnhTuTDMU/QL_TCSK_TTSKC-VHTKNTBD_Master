@@ -6877,6 +6877,10 @@
       "PackagePath": "staticwebassets\\font\\fontawesome-free\\webfonts\\fa-solid-900.woff2"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\js\\Events.js",
+      "PackagePath": "staticwebassets\\js\\Events.js"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\js\\adminIndex.js",
       "PackagePath": "staticwebassets\\js\\adminIndex.js"
     },
@@ -7133,12 +7137,52 @@
       "PackagePath": "staticwebassets\\uploads\\3e673cb5-da24-4d7e-9313-ca126fff1832_hero-bg.jpg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\42a4d4c2-bc8d-4aa0-a749-3a54b98d6686_TrungTamHoiNghi.jpg",
+      "PackagePath": "staticwebassets\\uploads\\42a4d4c2-bc8d-4aa0-a749-3a54b98d6686_TrungTamHoiNghi.jpg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\4a317079-1456-481e-b98b-daa576859e30_xuhuongcongnghe.jpg",
       "PackagePath": "staticwebassets\\uploads\\4a317079-1456-481e-b98b-daa576859e30_xuhuongcongnghe.jpg"
     },
     {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\53156b59-cbc1-42d0-8c98-76588be4ff08_background_2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\53156b59-cbc1-42d0-8c98-76588be4ff08_background_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\65ef4730-930d-497c-b49b-b2041bd771cd_background_login.jpg",
+      "PackagePath": "staticwebassets\\uploads\\65ef4730-930d-497c-b49b-b2041bd771cd_background_login.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\715efae3-e2f5-49ad-bef7-4a7e2e8abc35_Food1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\715efae3-e2f5-49ad-bef7-4a7e2e8abc35_Food1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\8911dce6-1f68-4254-a2b6-5fe8e2e96f8e_Background1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\8911dce6-1f68-4254-a2b6-5fe8e2e96f8e_Background1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\8b30e179-8007-4e79-8c79-9164cd0935b7_hotels-2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\8b30e179-8007-4e79-8c79-9164cd0935b7_hotels-2.jpg"
+    },
+    {
       "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\Logo.jpg",
       "PackagePath": "staticwebassets\\uploads\\Logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\aa426dc4-b30f-4bae-966c-8e771574f804_background_2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\aa426dc4-b30f-4bae-966c-8e771574f804_background_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\d8b3be1a-0d79-4a69-b116-b479549c08d3_Logo.jpg",
+      "PackagePath": "staticwebassets\\uploads\\d8b3be1a-0d79-4a69-b116-b479549c08d3_Logo.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\eab4a28c-0aed-46c1-80ff-e52cec57f3da_background_2.jpg",
+      "PackagePath": "staticwebassets\\uploads\\eab4a28c-0aed-46c1-80ff-e52cec57f3da_background_2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\eeb76697-795f-46d5-8b68-9dd42a95afeb_background_login.jpg",
+      "PackagePath": "staticwebassets\\uploads\\eeb76697-795f-46d5-8b68-9dd42a95afeb_background_login.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Microsoft.AspNetCore.StaticWebAssets.props",

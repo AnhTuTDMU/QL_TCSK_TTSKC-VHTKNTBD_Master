@@ -31,27 +31,27 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="EventStartDate"></label>
-                    <input asp-for="EventStartDate" class="form-control" type="datetime-local" />
+                    <input asp-for="EventStartDate" class="form-control" type="datetime-local" id="eventStartDate" />
                     <span asp-validation-for="EventStartDate" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="EventEndDate"></label>
-                    <input asp-for="EventEndDate" class="form-control" type="datetime-local" />
+                    <input asp-for="EventEndDate" class="form-control" type="datetime-local" id="eventEndDate" />
                     <span asp-validation-for="EventEndDate" class="text-danger"></span>
                 </div>
             </div>
             <div class="col-md-6">
-               @*  <div class="form-group" id="LocationGroup">
+                <div class="form-group" id="LocationGroup">
                     <label asp-for="EventLocation"></label>
-                    <select asp-for="EventLocation" class="form-control" asp-items="@ViewBag.EventLocations">
+                    <select asp-for="EventLocation" class="form-control" asp-items="@ViewBag.EventLocations" id="eventLocationSelect">
                         <option value="">Chọn địa điểm</option>
+                        <option value="add_new_location">Thêm địa điểm mới</option>
                     </select>
                     <span asp-validation-for="EventLocation" class="text-danger"></span>
-                </div> *@
-                <div class="form-group" id="newLocationGroup">
-                    <label>Nhập mới địa điểm:</label>
-                    <input type="text" asp-for="EventLocation" class="form-control" />
-                    <span asp-validation-for="EventLocation" class="text-danger"></span>
+                    <div class="form-group" id="newLocationInputGroup" style="display:none;">
+                        <label for="newLocationName">Tên địa điểm mới</label>
+                        <input type="text" class="form-control" id="newLocationName" name="newLocationName">
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,5 +65,4 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
-
 }

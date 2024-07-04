@@ -30,12 +30,12 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Shared/_NavAdmin.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXF9OYXZBZG1pbi5jc2h0bWw=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Account/Login.cshtml]
@@ -50,16 +50,24 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXERldGFpbHMuY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/EndedEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXEVuZGVkRXZlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/RegistrationList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXFJlZ2lzdHJhdGlvbkxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/UpcomingEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXFVwY29taW5nRXZlbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Home/Index.cshtml]

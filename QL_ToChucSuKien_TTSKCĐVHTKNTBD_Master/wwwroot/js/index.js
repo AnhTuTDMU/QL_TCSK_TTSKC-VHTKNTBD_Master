@@ -176,6 +176,79 @@
     }
     window.addEventListener('load', navmenuScrollspy);
     document.addEventListener('scroll', navmenuScrollspy);
+        document.addEventListener("DOMContentLoaded", function () {
+            // Lấy tất cả các liên kết có class là "scroll-link"
+            var scrollLinks = document.querySelectorAll('a[href^="#"]');
 
-   
+        // Lặp qua từng liên kết
+        scrollLinks.forEach(function (scrollLink) {
+            // Ngăn chặn hành động mặc định khi nhấp vào liên kết
+            scrollLink.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                // Lấy phần tử mà liên kết sẽ chuyển đến
+                var targetId = scrollLink.getAttribute("href").substring(1);
+                var targetElement = document.getElementById(targetId);
+
+                // Kiểm tra nếu phần tử tồn tại trước khi cuộn đến
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: "smooth" });
+                } else {
+                    console.error("Không tìm thấy phần tử với id " + targetId);
+                }
+            });
+        });
+      
+        });
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".pagination a").forEach(function (link) {
+            link.addEventListener("click", function (event) {
+                // Ngăn chặn hành vi mặc định của liên kết
+                event.preventDefault();
+
+                // Lấy URL từ href của liên kết
+                const url = this.href;
+
+                // Thực hiện yêu cầu AJAX tới URL
+                fetch(url, {
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                    .then(response => response.text())
+                    .then(html => {
+                        // Cập nhật nội dung của phần "EndedEvents"
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(html, 'text/html');
+                        const newContent = doc.querySelector("#EndedEvents");
+                        document.querySelector("#EndedEvents").innerHTML = newContent.innerHTML;
+
+                        // Cuộn đến phần "EndedEvents"
+                        document.querySelector("#EndedEvents").scrollIntoView({ behavior: 'smooth' });
+
+                        // Thêm lại sự kiện cho các liên kết phân trang mới
+                        document.querySelectorAll(".pagination a").forEach(function (link) {
+                            link.addEventListener("click", function (event) {
+                                event.preventDefault();
+                                const url = this.href;
+                                fetch(url, {
+                                    headers: {
+                                        'X-Requested-With': 'XMLHttpRequest'
+                                    }
+                                })
+                                    .then(response => response.text())
+                                    .then(html => {
+                                        const parser = new DOMParser();
+                                        const doc = parser.parseFromString(html, 'text/html');
+                                        const newContent = doc.querySelector("#EndedEvents");
+                                        document.querySelector("#EndedEvents").innerHTML = newContent.innerHTML;
+                                        document.querySelector("#EndedEvents").scrollIntoView({ behavior: 'smooth' });
+                                    });
+                            });
+                        });
+                    });
+            });
+        });
+    });
+
 })();

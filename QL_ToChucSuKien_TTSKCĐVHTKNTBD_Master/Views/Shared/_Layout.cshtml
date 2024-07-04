@@ -51,12 +51,12 @@
 
                                 </ul>
                             </li>
-                            <li><a href="#">Sự kiện đã kết thúc</a></li>
+                            <li><a href="#EndEvents" class="active">Sự kiện đã kết thúc</a></li>
                         </ul>
                     </li>
                     <li><a href="#" class="">Dịch vụ<br></a></li>
                     <li><a href="#" class="">Ưu đãi<br></a></li>
-                    <li><a href="#contact">Về chúng tôi</a></li>
+                    <li><a href="#">Về chúng tôi</a></li>
              
 
                 </ul>
@@ -66,19 +66,60 @@
         </div>
    
     </header>
-    <div class="main">
+    <div class="main body-content">
         @RenderBody()
-    </div>
-    <footer class="footer fixed-bottom bg-light">
-        <div class="container text-center">
-            <span class="text-muted">©Quản lý tổ chức sự kiện TTP 2024</span>
+        <div id="EndEvents">
         </div>
+    </div>
+    <footer id="footer" class="footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="row gy-4">
+                    <div class="col-lg-10 col-md-12 footer-about">
+                        <a href="@Url.Action("Index","Home")" class="logo d-flex align-items-center">
+                            <span class="sitename">
+                                SỞ KHOA HỌC VÀ CÔNG NGHỆ TỈNH BÌNH DƯƠNG TRUNG TÂM SÁNG KIẾN CỘNG ĐỒNG VÀ HỖ TRỢ KHỞI NGHIỆP
+                            </span>
+           
+                        </a>
+                        <div class="footer-contact pt-3">
+                            <p>Số 28, Huỳnh Văn Nghệ, P.Phú Lợi, TP.Thủ Dầu Một, tỉnh Bình Dương</p>
+                            <p class="mt-3"><strong>Số điện thoại:</strong> <span>02743866969</span></p>
+                            <p><strong>Email:</strong> <span>biic@binhduong.gov.vn</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="copyright text-center">
+            <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+                <div class="d-flex flex-column align-items-center align-items-lg-start">
+                    <div>
+                        © Copyright <strong><span>TTP</span></strong>.Đã đăng ký bản quyền
+                    </div>
+                </div>
+
+                <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="#" target="_blank"><i class="bi bi-github"></i></a>
+
+                </div>
+
+            </div>
+        </div>
+
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
- 
+
+
 
     @await RenderSectionAsync("Scripts", required: false)
     

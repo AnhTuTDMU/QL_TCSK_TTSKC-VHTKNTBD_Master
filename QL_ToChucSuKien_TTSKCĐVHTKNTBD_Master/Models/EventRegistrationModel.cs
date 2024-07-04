@@ -9,8 +9,8 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models
         public int RegistrationId { get; set; }
         public int EventId { get; set; }
         public int CustomerId { get; set; }
-        public CustomersModel? Customers { get; set; }
-        public EventsModel? Event { get; set; }
+        public CustomersModel ? Customers { get; set; }
+        public EventsModel ? Event { get; set; }
         public DateTime RegistrationDate { get; set; }
     }
 }

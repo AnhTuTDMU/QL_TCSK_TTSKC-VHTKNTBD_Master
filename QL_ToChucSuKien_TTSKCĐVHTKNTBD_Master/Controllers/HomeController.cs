@@ -18,37 +18,42 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
         }
 
 
-        public async Task<IActionResult> Index(int pageNumber = 1, int pageSize = 4)
+        public async Task<IActionResult> Index(int runningPageNumber = 1, int runningPageSize = 3,
+                                               int upcomingPageNumber = 1, int upcomingPageSize = 3,
+                                               int endedPageNumber = 1, int endedPageSize = 3)
         {
             var currentDate = DateTime.Now;
             await AutoUpdateEventStatus();
-            var runningEvents = await _context.Events
+
+            var runningEventsQuery = _context.Events
                 .Where(e => e.EventStatus == "1")
                 .OrderByDescending(e => e.EventStartDate)
-                .AsNoTracking()
-                .ToListAsync();
+                .AsQueryable();
 
-            var upcomingEvents = await _context.Events
+            var upcomingEventsQuery = _context.Events
                 .Where(e => e.EventStatus == "2")
                 .OrderBy(e => e.EventStartDate)
-                .AsNoTracking()
-                .ToListAsync();
+                .AsQueryable();
 
-            var endedEvents = await _context.Events
+            var endedEventsQuery = _context.Events
                 .Where(e => e.EventStatus == "0")
                 .OrderByDescending(e => e.EventEndDate)
-                .AsNoTracking()
-                .ToListAsync();
+                .AsQueryable();
+
+            var runningEvents = await PaginatedList<EventsModel>.CreateAsync(runningEventsQuery.AsNoTracking(), runningPageNumber, runningPageSize);
+            var upcomingEvents = await PaginatedList<EventsModel>.CreateAsync(upcomingEventsQuery.AsNoTracking(), upcomingPageNumber, upcomingPageSize);
+            var endedEvents = await PaginatedList<EventsModel>.CreateAsync(endedEventsQuery.AsNoTracking(), endedPageNumber, endedPageSize);
 
             var viewModel = new EventsViewModel
             {
-                RunningEvents = new PaginatedList<EventsModel>(runningEvents, runningEvents.Count, pageNumber, pageSize),
-                UpcomingEvents = new PaginatedList<EventsModel>(upcomingEvents, upcomingEvents.Count, pageNumber, pageSize),
-                EndedEvents = new PaginatedList<EventsModel>(endedEvents, endedEvents.Count, pageNumber, pageSize)
+                RunningEvents = runningEvents,
+                UpcomingEvents = upcomingEvents,
+                EndedEvents = endedEvents
             };
 
             return View(viewModel);
         }
+
 
         public async Task<IActionResult> AutoUpdateEventStatus()
         {

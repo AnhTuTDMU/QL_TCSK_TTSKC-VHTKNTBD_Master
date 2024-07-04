@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol;
 using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Data;
@@ -15,22 +16,33 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
         {
             _context = context;
         }
+        public async Task<IActionResult> LoadAllEndedEvents()
+        {
+            var endedEvents = await _context.Events
+                .Where(e => e.EventStatus == "0")
+                .OrderByDescending(e => e.EventEndDate)
+                .AsNoTracking()
+                .ToListAsync();
+
+            return PartialView("_EndedEventsPartial", endedEvents);
+        }
 
         // GET: /Events/Detail
-        public IActionResult Detail(int eventId)
+        public async Task<IActionResult> Detail(int eventId)
         {
-            var eventDetail = _context.Events.FirstOrDefault(e => e.EventID == eventId);
+            var eventDetail = await _context.Events.FirstOrDefaultAsync(e => e.EventID == eventId);
 
             if (eventDetail == null)
             {
                 return NotFound();
             }
+
             // Đếm số lượng đăng ký cho sự kiện này
-            eventDetail.NumberRegistrations = _context.EventRegistrations
-                                             .Count(r => r.EventId == eventId);
+            eventDetail.NumberRegistrations = await _context.EventRegistrations
+                                              .CountAsync(r => r.EventId == eventId);
+
             return View(eventDetail);
         }
-     
 
         public async Task<IActionResult> Register(int eventId)
         {
