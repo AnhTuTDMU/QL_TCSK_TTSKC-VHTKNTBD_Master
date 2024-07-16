@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using OfficeOpenXml;
+using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models;
+using Microsoft.AspNetCore.Identity;
 
 var supportedCultures = new[] { new CultureInfo("vi-VN") };
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Cấu hình DbContext
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("QL_ToChucSuKien_TTSKCĐVHTKNTBD_MasterConnection")));
+
+
 
 // Cấu hình LicenseContext
 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
@@ -28,7 +32,7 @@ builder.Services.Configure<FormOptions>(options =>
 builder.Services.AddControllersWithViews();
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddAuthorization();
-
+builder.Services.AddRazorPages();
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromSeconds(30);
@@ -44,6 +48,10 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         options.LogoutPath = "/Admin/Account/Logout";
         options.AccessDeniedPath = "/Admin/Account/AccessDenied";
     });
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.ClaimsIdentity.RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role";
+});
 
 // Cấu hình cho phép yêu cầu Ajax từ các miền khác
 builder.Services.AddCors(options =>

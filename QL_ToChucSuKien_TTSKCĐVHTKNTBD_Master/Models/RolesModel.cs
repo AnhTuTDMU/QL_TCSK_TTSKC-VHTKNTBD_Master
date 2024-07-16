@@ -8,9 +8,9 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models
         public int RoleId { get; set; }
 
         [Required]
-        public string ? RoleName { get; set; }
+        public string RoleName { get; set; } = string.Empty;
 
-        // Danh sách các quyền hạn của vai trò
-        public List<string> ? Permissions { get; set; }
+        public List<UsersModel> Users { get; set; } = new List<UsersModel>();
+        public List<string> Permissions { get; set; } = new List<string>();
     }
 }

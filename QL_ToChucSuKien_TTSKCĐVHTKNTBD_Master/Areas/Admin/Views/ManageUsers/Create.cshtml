@@ -1,0 +1,61 @@
+﻿@model QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.UsersModel
+
+@{
+    ViewData["Title"] = "Create User";
+    Layout = null;
+}
+
+<h2>Tạo mới nhân viên</h2>
+
+<div class="modal-body">
+    <form id="createUserForm" enctype="multipart/form-data">
+        @Html.AntiForgeryToken()
+
+        <div class="form-group">
+            <label asp-for="UserName"></label>
+            <input asp-for="UserName" class="form-control" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="UserEmail"></label>
+            <input asp-for="UserEmail" class="form-control" />
+            <span asp-validation-for="UserEmail" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="RoleId">Chức vụ</label>
+            <select asp-for="RoleId" class="form-control" asp-items="@(new SelectList(ViewBag.Roles, "RoleId", "RoleName"))">
+                <option value="">-- Chọn chức vụ --</option>
+            </select>
+            <span asp-validation-for="RoleId" class="text-danger"></span>
+        </div>
+
+        <div class="form-group mt-4 text-right">
+            <button type="button" id="btnCreateUser" class="btn btn-primary">Thêm nhân viên</button>
+            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Đóng</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

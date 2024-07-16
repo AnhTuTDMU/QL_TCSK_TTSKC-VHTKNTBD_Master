@@ -41,7 +41,6 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models
         public ICollection<EventRegistrationModel> ? Registrations { get; set; }
         [Display(Name ="Số người tham gia")]
         public int NumberRegistrations { get; set; }
-        /*  [Display(Name ="Link bài báo")]
-          public string ? ArticleLink { get; set; }*/
+
     }
 }

@@ -1,0 +1,26 @@
+﻿@using X.PagedList
+@model IPagedList<QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.ViewModels.EventDetailViewModel>
+
+@foreach (var eventDetail in Model)
+{
+    <tr>
+        <td>@eventDetail.EventName</td>
+        <td>@eventDetail.EventStartDate.ToString("dd/MM/yyyy HH:mm")</td>
+        <td>@eventDetail.EventEndDate.ToString("dd/MM/yyyy HH:mm")</td>
+        <td>@eventDetail.EventLocation</td>
+        <td>
+            @if (!string.IsNullOrEmpty(eventDetail.EventDescription) && eventDetail.EventDescription.Length > 30)
+            {
+                <text>@eventDetail.EventDescription.Substring(0, 30)...</text>
+            }
+            else
+            {
+                @eventDetail.EventDescription
+            }
+        </td>
+        <td>
+            <span class="badge badge-success">@eventDetail.ParticipantCount</span>
+            <i class="fas fa-users ml-1"></i>
+        </td>
+    </tr>
+}

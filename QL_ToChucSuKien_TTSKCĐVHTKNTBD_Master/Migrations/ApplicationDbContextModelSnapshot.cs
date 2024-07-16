@@ -31,12 +31,15 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CustomerId"));
 
                     b.Property<string>("CustomerEmail")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CustomerPhone")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CustomerId");
@@ -121,6 +124,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("RoleId"));
 
                     b.Property<string>("Permissions")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("RoleName")
@@ -234,7 +238,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
             modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.UsersModel", b =>
                 {
                     b.HasOne("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.RolesModel", "Role")
-                        .WithMany()
+                        .WithMany("Users")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -250,6 +254,11 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Migrations
             modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.EventsModel", b =>
                 {
                     b.Navigation("Registrations");
+                });
+
+            modelBuilder.Entity("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models.RolesModel", b =>
+                {
+                    b.Navigation("Users");
                 });
 #pragma warning restore 612, 618
         }

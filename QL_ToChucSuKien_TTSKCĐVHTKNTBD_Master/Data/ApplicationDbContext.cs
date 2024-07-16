@@ -35,11 +35,26 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Data
             base.OnModelCreating(modelBuilder);
 
             // Thiết lập quan hệ 1-nhiều giữa UsersModel và Role
-            modelBuilder.Entity<UsersModel>()
-                .HasOne(u => u.Role)
-                .WithMany()
-                .HasForeignKey(u => u.RoleId);
-      
+            modelBuilder.Entity<UsersModel>(entity =>
+            {
+                entity.HasKey(e => e.UserId);
+                entity.Property(e => e.UserName).IsRequired();
+                entity.Property(e => e.UserEmail).IsRequired();
+                entity.Property(e => e.Password).IsRequired();
+                entity.Property(e => e.Address).IsRequired();
+                entity.Property(e => e.PhoneNumber).IsRequired();
+
+                entity.HasOne(e => e.Role)
+                    .WithMany(r => r.Users)
+                    .HasForeignKey(e => e.RoleId);
+            });
+
+            modelBuilder.Entity<RolesModel>(entity =>
+            {
+                entity.HasKey(e => e.RoleId);
+                entity.Property(e => e.RoleName).IsRequired();
+            });
+
             // Thiết lập quan hệ nhiều-nhiều giữa Events và EventRegistrations và Customer
             modelBuilder.Entity<EventRegistrationModel>()
                  .HasOne(r => r.Event)

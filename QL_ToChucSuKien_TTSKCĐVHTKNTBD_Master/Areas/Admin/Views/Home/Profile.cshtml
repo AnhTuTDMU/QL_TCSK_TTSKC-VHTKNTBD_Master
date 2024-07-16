@@ -34,7 +34,10 @@
                                     <label for="UserEmail">Email</label>
                                     <input asp-for="UserEmail" class="form-control" />
                                 </div>
-
+                                <div class="form-group">
+                                    <label for="Password">Mật khẩu</label>
+                                    <input asp-for="Password" class="form-control" />
+                                </div>
                                 <div class="form-group">
                                     <label for="Address">Address</label>
                                     <input asp-for="Address" class="form-control" />
@@ -51,7 +54,7 @@
                                     <img id="imagePreview" src="~/uploads/@Model.ProfilePicture" alt="Profile Picture" width="150" height="150" />
                                 </div>
 
-                                <button type="submit" class="btn btn-primary mt-2">Update Profile</button>
+                                <button type="submit" class="btn btn-primary mt-2">Cập nhật</button>
                             </form>
                         </div>
                     </div>
@@ -112,6 +115,15 @@
                     </div>
                     <div class="col-sm-9">
                         <p class="text-muted mb-0">@Model.UserEmail</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <p class="mb-0">Mật khẩu</p>
+                    </div>
+                    <div class="col-sm-9">
+                        <p class="text-muted mb-0">@Model.Password</p>
                     </div>
                 </div>
                 <hr>

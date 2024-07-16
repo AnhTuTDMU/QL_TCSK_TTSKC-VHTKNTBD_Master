@@ -11,6 +11,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models;
 using System;
+using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
+using System.Text;
+using System.Security.Cryptography;
 
 namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
 {
@@ -25,25 +29,35 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             _context = context;
             _webHostEnvironment = webHostEnvironment;
         }
-
         public async Task<IActionResult> Index()
         {
             await AutoUpdateEventStatus();
+
             var userId = HttpContext.Session.GetInt32("UserId");
             if (userId == null)
             {
                 return RedirectToAction("Login", "Account");
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.UserId == userId);
+            var user = await _context.Users
+                                      .Include(u => u.Role)
+                                      .FirstOrDefaultAsync(u => u.UserId == userId);
 
             if (user == null)
             {
                 return RedirectToAction("Login", "Account");
             }
 
+            var eventCount = await _context.Events.CountAsync();
+            var customerCount = await _context.Customers.CountAsync();
+            ViewData["EventCount"] = eventCount;
+            ViewData["CustomerCount"] = customerCount;
+            ViewBag.UserName = user.UserName;
+            ViewBag.UserAvatar = user.ProfilePicture; 
+
             return View(user);
         }
+
 
 
         public async Task<IActionResult> AutoUpdateEventStatus()
@@ -73,6 +87,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             await _context.SaveChangesAsync();
             return Json(new { success = true, message = "Trạng thái sự kiện đã được tự động cập nhật." });
         }
+
         [HttpGet]
         public IActionResult Profile()
         {
@@ -89,6 +104,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
                     UserId = u.UserId,
                     UserName = u.UserName,
                     UserEmail = u.UserEmail,
+                    Password = u.Password,
                     Address = u.Address,
                     ProfilePicture = u.ProfilePicture,
                     PhoneNumber = u.PhoneNumber,
@@ -116,12 +132,19 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
                 {
                     return NotFound();
                 }
+
                 user.UserName = model.UserName;
                 user.UserEmail = model.UserEmail;
                 user.Address = model.Address;
                 user.PhoneNumber = model.PhoneNumber;
+                user.ProfilePicture = model.ProfilePicture;
 
+                if (!string.IsNullOrEmpty(model.Password))
+                {
+                    user.Password = HashPassword(model.Password); 
+                }
 
+                // Xử lý upload hình ảnh
                 if (model.FrontImg != null)
                 {
                     user.ProfilePicture = UploadFile(model.FrontImg);
@@ -135,6 +158,18 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
 
             return View(model);
         }
+
+
+        private string HashPassword(string password)
+        {
+            using (var sha256 = SHA256.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(password);
+                var hash = sha256.ComputeHash(bytes);
+                return Convert.ToBase64String(hash);
+            }
+        }
+
 
 
         private string UploadFile(IFormFile file)
@@ -152,5 +187,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             }
             return uniqueFileName;
         }
+     
+
     }
 }

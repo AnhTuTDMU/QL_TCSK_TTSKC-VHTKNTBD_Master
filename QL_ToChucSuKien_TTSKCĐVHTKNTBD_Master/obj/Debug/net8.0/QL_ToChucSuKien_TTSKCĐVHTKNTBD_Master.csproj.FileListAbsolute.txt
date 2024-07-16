@@ -264,3 +264,14 @@ C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKie
 C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\EPPlus.Interfaces.dll
 C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\EPPlus.System.Drawing.dll
 C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\Microsoft.IO.RecyclableMemoryStream.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\BouncyCastle.Cryptography.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\itextsharp.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\System.Web.Mvc.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\System.Web.Razor.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\System.Web.Helpers.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\System.Web.WebPages.Deployment.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\System.Web.WebPages.Razor.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\System.Web.WebPages.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\Microsoft.Web.Infrastructure.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\ASUS\Source\Repos\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll

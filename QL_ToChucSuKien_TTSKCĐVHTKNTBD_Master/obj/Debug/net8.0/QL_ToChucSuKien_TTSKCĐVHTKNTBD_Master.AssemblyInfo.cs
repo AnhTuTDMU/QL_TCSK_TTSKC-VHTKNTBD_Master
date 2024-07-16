@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+008ada08462e336a9c41393562624d42547083d5")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fb192d556221610f7997446b3d820f64e7a4ad7f")]
 [assembly: System.Reflection.AssemblyProductAttribute("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master")]
 [assembly: System.Reflection.AssemblyTitleAttribute("QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

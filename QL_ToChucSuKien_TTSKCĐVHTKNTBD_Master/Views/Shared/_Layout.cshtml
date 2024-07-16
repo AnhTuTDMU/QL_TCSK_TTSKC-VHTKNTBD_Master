@@ -44,7 +44,7 @@
                         <ul>
                             <li><a href="#">Tất cả sự kiện </a></li>
                             <li class="dropdown">
-                                <a href="#"><span>Sự kiện sắp diễn ra</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <a href="#EndedEvents"><span>Sự kiện sắp diễn ra</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                                 <ul>
                                     <li><a href="#">Sự kiện ngoài trời</a></li>
                                     <li><a href="#">Sự kiện trong nhà</a></li>
@@ -68,6 +68,8 @@
     </header>
     <div class="main body-content">
         @RenderBody()
+        <div id="EndedEvents">
+        </div>
         <div id="EndEvents">
         </div>
     </div>

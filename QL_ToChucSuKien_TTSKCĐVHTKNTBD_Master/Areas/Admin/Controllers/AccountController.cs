@@ -10,6 +10,8 @@ using System.Security.Cryptography;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Authorization;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
 {
@@ -21,57 +23,35 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
         {
             _context = context;
         }
-
+  
         [HttpGet]
         public IActionResult Register()
         {
             return View();
         }
-
-        [HttpPost]
-        public async Task<IActionResult> Register(RegisterViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                if (!_context.Users.Any(u => u.UserEmail == model.Email))
-                {
-                    var user = new UsersModel
-                    {
-                        UserName = model.Username,
-                        UserEmail = model.Email,
-                        Password = HashPassword(model.Password),
-                        Address = model.Address,
-                    };
-                    _context.Users.Add(user);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction("Login", "Account");
-                }
-
-                ModelState.AddModelError(string.Empty, "Email đã được đăng ký.");
-            }
-
-            return View(model);
-        }
-
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
-
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
-                var user = _context.Users.SingleOrDefault(u => u.UserEmail == model.Email);
+                var user = _context.Users
+                                    .Include(u => u.Role) // Nạp thông tin Role
+                                    .SingleOrDefault(u => u.UserEmail == model.Email);
+
                 if (user != null && VerifyPassword(model.Password, user.Password))
                 {
                     var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, user.UserName),
-                        new Claim(ClaimTypes.Email, user.UserEmail)
-                    };
+            {
+                new Claim(ClaimTypes.Name, user.UserName),
+                new Claim(ClaimTypes.Email, user.UserEmail),
+                 new Claim(ClaimTypes.Role, user.Role.RoleName)
+            };
+
                     // Lưu tên người dùng vào Session
                     HttpContext.Session.SetString("Username", user.UserName);
                     HttpContext.Session.SetInt32("UserId", user.UserId);
@@ -83,7 +63,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
                     };
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-                    ;
+
                     return RedirectToAction("Index", "Home");
                 }
                 else if (user == null)

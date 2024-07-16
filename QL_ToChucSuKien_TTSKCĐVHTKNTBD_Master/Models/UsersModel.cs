@@ -8,20 +8,26 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models
     {
         [Key]
         public int UserId { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Tên nhân viên là bắt buộc.")]
+        [Display(Name = "Họ tên")]
         public string UserName { get; set; } = string.Empty;
-        [Required]
+        [Required(ErrorMessage = "Email là bắt buộc.")]
+        [Display(Name = "Email")]
         public string UserEmail { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        [Required]
+        [Required(ErrorMessage = "Địa chỉ là bắt buộc")]
+        [Display(Name = "Địa chỉ")]
         public string Address { get; set; } = string.Empty;
-        public string ProfilePicture { get; set; } = string.Empty;
+        [Display(Name = "Hình ảnh")]
+        public string ProfilePicture { get; set; } =  "default-profile.png";
         [Required]
+        [Display(Name = "Số điện thoại")]
         public string PhoneNumber { get; set; } = string.Empty;
         [Display(Name = "Chọn ảnh")]
         [NotMapped]
         public IFormFile? FrontImg { get; set; }
         // Khóa ngoại tới Role
+        [Display(Name = "Chức vụ")]
         public int RoleId { get; set; }
         public RolesModel ? Role { get; set; }
    

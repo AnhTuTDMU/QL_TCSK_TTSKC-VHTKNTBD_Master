@@ -30,7 +30,7 @@ function ajaxPost(url, data) {
                 alert('Đã xảy ra lỗi:<br>' + errors);
             }
         },
-        error: function () {
+        error: function (xhr ) {
             alert('Đã xảy ra lỗi khi gửi yêu cầu.');
         }
     });
