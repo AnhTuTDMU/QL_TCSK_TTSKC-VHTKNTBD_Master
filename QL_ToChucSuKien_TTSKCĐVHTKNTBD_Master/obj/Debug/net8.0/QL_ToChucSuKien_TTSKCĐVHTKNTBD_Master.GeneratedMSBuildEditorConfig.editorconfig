@@ -74,10 +74,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXFVwY29taW5nRXZlbnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Events/_EventDetailsPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXZlbnRzXF9FdmVudERldGFpbHNQYXJ0aWFsLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Areas/Admin/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -110,12 +106,28 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXERldGFpbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Events/LoadAllEndedEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXExvYWRBbGxFbmRlZEV2ZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Events/LoadAllRunningEvents.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXExvYWRBbGxSdW5uaW5nRXZlbnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Events/LoadAllUpcoming.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXExvYWRBbGxVcGNvbWluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Events/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXZlbnRzXFJlZ2lzdGVyLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Home/LoadUsers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMb2FkVXNlcnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Home/Privacy.cshtml]
@@ -126,12 +138,12 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Shared/_LoginPartial.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Shared/TheTeam.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFRoZVRlYW0uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Shared/_Search.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TZWFyY2guY3NodG1s
+[C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ASUS/Source/Repos/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master/Views/Shared/_ValidationScriptsPartial.cshtml]

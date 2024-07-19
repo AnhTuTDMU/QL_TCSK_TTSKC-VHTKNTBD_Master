@@ -45,13 +45,10 @@
                     <label asp-for="EventLocation"></label>
                     <select asp-for="EventLocation" class="form-control" asp-items="@ViewBag.EventLocations" id="eventLocationSelect">
                         <option value="">Chọn địa điểm</option>
-                        <option value="add_new_location">Thêm địa điểm mới</option>
+                        <option value="__new__">Thêm địa điểm mới</option>
                     </select>
+                    <input type="text" class="form-control mt-2" placeholder="Nhập địa điểm mới" id="newLocationInput" name="newLocationInput" style="display: none;" />
                     <span asp-validation-for="EventLocation" class="text-danger"></span>
-                    <div class="form-group" id="newLocationInputGroup" style="display:none;">
-                        <label for="newLocationName">Tên địa điểm mới</label>
-                        <input type="text" class="form-control" id="newLocationName" name="newLocationName">
-                    </div>
                 </div>
             </div>
         </div>
@@ -62,6 +59,17 @@
 
     </form>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#eventLocationSelect').change(function () {
+            if ($(this).val() == '__new__') {
+                $('#newLocationInput').show();
+            } else {
+                $('#newLocationInput').hide();
+            }
+        });
+    });
+</script>
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />

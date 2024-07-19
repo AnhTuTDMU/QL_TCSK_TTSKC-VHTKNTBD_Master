@@ -16,16 +16,58 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
         {
             _context = context;
         }
-        public async Task<IActionResult> LoadAllEndedEvents()
+        public async Task<IActionResult> LoadAllRunningEvents(int runningPageNumber = 1, int runningPageSize = 10)
         {
-            var endedEvents = await _context.Events
+            var runningEventsQuery = _context.Events
+               .Where(e => e.EventStatus == "1")
+               .OrderByDescending(e => e.EventStartDate)
+               .AsQueryable();
+
+
+            var runningEvents = await PaginatedList<EventsModel>.CreateAsync(runningEventsQuery.AsNoTracking(), runningPageNumber, runningPageSize);
+
+            var viewModel = new EventsViewModel
+            {
+                RunningEvents = runningEvents,
+            };
+
+            return View(viewModel);
+        }
+        public async Task<IActionResult> LoadAllUpcoming(int upcomingPageNumber = 1, int upcomingPageSize = 10)
+        {
+            var upcomingEventsQuery = _context.Events
+              .Where(e => e.EventStatus == "2")
+              .OrderBy(e => e.EventStartDate)
+              .AsQueryable();
+
+
+            var upcomingEvents = await PaginatedList<EventsModel>.CreateAsync(upcomingEventsQuery.AsNoTracking(), upcomingPageNumber, upcomingPageSize);
+
+            var viewModel = new EventsViewModel
+            {
+                UpcomingEvents = upcomingEvents,
+            };
+
+            return View(viewModel);
+        }
+        public async Task<IActionResult> LoadAllEndedEvents(int endedPageNumber = 1, int endedPageSize = 10)
+        {
+            var endedEventsQuery = _context.Events
                 .Where(e => e.EventStatus == "0")
                 .OrderByDescending(e => e.EventEndDate)
-                .AsNoTracking()
-                .ToListAsync();
+                .AsQueryable();
 
-            return PartialView("_EndedEventsPartial", endedEvents);
+            var endedEvents = await PaginatedList<EventsModel>.CreateAsync(endedEventsQuery.AsNoTracking(), endedPageNumber, endedPageSize);
+
+            var viewModel = new EventsViewModel
+            {
+                EndedEvents = endedEvents
+            };
+
+            return View(viewModel); 
         }
+
+      
 
         // GET: /Events/Detail
         public async Task<IActionResult> Detail(int eventId)
@@ -47,7 +89,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
         public async Task<IActionResult> Register(int eventId)
         {
             var eventModel = await _context.Events
-                                           .Include(e => e.Registrations) // Bao gồm thông tin đăng ký
+                                           .Include(e => e.Registrations)
                                            .FirstOrDefaultAsync(e => e.EventID == eventId);
             if (eventModel == null)
             {
@@ -76,8 +118,8 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
                     var eventModel = await _context.Events.FindAsync(registrationModel.EventId);
                     if (eventModel == null)
                     {
-                        ModelState.AddModelError("", "Event not found.");
-                        return Json(new { success = false, message = "Event not found." });
+                        ModelState.AddModelError("", "Sự kiện không có. Lỗi");
+                        return Json(new { success = false, message = "Sự kiện không có. Lỗi" });
                     }
 
                     registrationModel.Event = eventModel;
@@ -113,7 +155,8 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
 
                         registrationModel.CustomerId = newCustomer.CustomerId;
                     }
-                    registrationModel.RegistrationDate = DateTime.Now;
+                    registrationModel.RegistrationDate = DateTime.UtcNow;
+
                     // Xóa thông tin khách hàng để tránh lưu trùng lặp vào EventRegistrations
                     registrationModel.Customers = null;
 

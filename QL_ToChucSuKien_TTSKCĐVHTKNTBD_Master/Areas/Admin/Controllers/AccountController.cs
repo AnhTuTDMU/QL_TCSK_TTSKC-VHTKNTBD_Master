@@ -40,10 +40,10 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 var user = _context.Users
-                                    .Include(u => u.Role) // Nạp thông tin Role
+                                    .Include(u => u.Role) 
                                     .SingleOrDefault(u => u.UserEmail == model.Email);
 
-                if (user != null && VerifyPassword(model.Password, user.Password))
+                if (user != null && user.Role != null && VerifyPassword(model.Password, user.Password))
                 {
                     var claims = new List<Claim>
             {
@@ -89,7 +89,7 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Areas.Admin.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             HttpContext.Session.Remove("Username");
             HttpContext.Session.Remove("UserId");
-            return RedirectToAction("Login", "Account", new { area = "Admin" });
+            return RedirectToAction("Index", "Home", new { area = "" });
         }
 
         [AllowAnonymous]

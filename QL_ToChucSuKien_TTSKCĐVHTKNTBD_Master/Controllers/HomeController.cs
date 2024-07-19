@@ -17,7 +17,6 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Controllers
             _context = context;
         }
 
-
         public async Task<IActionResult> Index(int runningPageNumber = 1, int runningPageSize = 3,
                                                int upcomingPageNumber = 1, int upcomingPageSize = 3,
                                                int endedPageNumber = 1, int endedPageSize = 3)

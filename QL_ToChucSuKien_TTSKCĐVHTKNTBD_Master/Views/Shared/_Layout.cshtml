@@ -42,22 +42,21 @@
                     <li class="dropdown">
                         <a href="#"><span>Sự kiện</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="#">Tất cả sự kiện </a></li>
+                            <li><a href="@Url.Action("LoadAllRunningEvents", "Events")">Tất cả sự kiện </a></li>
                             <li class="dropdown">
-                                <a href="#EndedEvents"><span>Sự kiện sắp diễn ra</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <a href="@Url.Action("LoadAllUpcoming", "Events")"><span>Sự kiện sắp diễn ra</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                                 <ul>
                                     <li><a href="#">Sự kiện ngoài trời</a></li>
                                     <li><a href="#">Sự kiện trong nhà</a></li>
 
                                 </ul>
                             </li>
-                            <li><a href="#EndEvents" class="active">Sự kiện đã kết thúc</a></li>
+                            <li><a href="@Url.Action("LoadAllEndedEvents", "Events")" class="active">Sự kiện đã kết thúc</a></li>
                         </ul>
                     </li>
                     <li><a href="#" class="">Dịch vụ<br></a></li>
                     <li><a href="#" class="">Ưu đãi<br></a></li>
-                    <li><a href="#">Về chúng tôi</a></li>
-             
+                    <li><a href="http://biic.vn/gioi-thieu/gioi-thieu.html">Về chúng tôi</a></li>
 
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -72,6 +71,9 @@
         </div>
         <div id="EndEvents">
         </div>
+    </div>
+    <div id="TheTeam">
+        @await Html.PartialAsync("TheTeam")
     </div>
     <footer id="footer" class="footer">
 
