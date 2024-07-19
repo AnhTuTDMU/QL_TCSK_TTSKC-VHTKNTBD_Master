@@ -20,8 +20,9 @@ namespace QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master.Models
         public string Address { get; set; } = string.Empty;
         [Display(Name = "Hình ảnh")]
         public string ProfilePicture { get; set; } =  "default-profile.png";
-        [Required]
         [Display(Name = "Số điện thoại")]
+        [Required(ErrorMessage = "Số điện thoại là bắt buộc.")]
+        [RegularExpression(@"^\d{10}$", ErrorMessage = "Số điện thoại phải gồm 10 chữ số.")]
         public string PhoneNumber { get; set; } = string.Empty;
         [Display(Name = "Chọn ảnh")]
         [NotMapped]

@@ -28736,6 +28736,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\715efae3-e2f5-49ad-bef7-4a7e2e8abc35_Food1.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8558bb93-d38e-4404-94c7-dbb2f63ad893_chungkhoang.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</BasePath>
+      <RelativePath>uploads/8558bb93-d38e-4404-94c7-dbb2f63ad893_chungkhoang.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8558bb93-d38e-4404-94c7-dbb2f63ad893_chungkhoang.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\uploads\8911dce6-1f68-4254-a2b6-5fe8e2e96f8e_Background1.jpg))">
       <SourceType>Package</SourceType>
       <SourceId>QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master</SourceId>

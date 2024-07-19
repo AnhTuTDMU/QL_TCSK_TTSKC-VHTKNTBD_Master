@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tlYBKCRp3jTqAwiBM77sgNmimqfH8TDutBrZImBsUZ0=",
+  "Hash": "+rURnWbub/klbGLNCQ3r48IVxbasegFzwPVOz4WcDLE=",
   "Source": "QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master",
   "BasePath": "_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master",
   "Mode": "Default",
@@ -35298,6 +35298,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\715efae3-e2f5-49ad-bef7-4a7e2e8abc35_Food1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\8558bb93-d38e-4404-94c7-dbb2f63ad893_chungkhoang.jpg",
+      "SourceId": "QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\",
+      "BasePath": "_content/QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master",
+      "RelativePath": "uploads/8558bb93-d38e-4404-94c7-dbb2f63ad893_chungkhoang.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\8558bb93-d38e-4404-94c7-dbb2f63ad893_chungkhoang.jpg"
     },
     {
       "Identity": "C:\\Users\\ASUS\\Source\\Repos\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\QL_ToChucSuKien_TTSKCĐVHTKNTBD_Master\\wwwroot\\uploads\\8911dce6-1f68-4254-a2b6-5fe8e2e96f8e_Background1.jpg",
